@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
-import com.xdluoyang.ffxivtools.widget.ZoomImageView;
+import com.xdluoyang.ffxivtools.widget.HotMapView;
 
 public class TestActivity extends Activity {
 
@@ -14,7 +14,7 @@ public class TestActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test);
 
-        ZoomImageView imageView = findViewById(R.id.view);
+        HotMapView imageView = findViewById(R.id.view);
         Picasso.with(this).load("https://hunt.ffxiv.xin/img/map/500/EasternThanalan.png").into(imageView);
 
     }

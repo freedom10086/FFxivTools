@@ -23,38 +23,57 @@ public class MainActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (savedInstanceState == null) {
+        if (savedInstanceState != null) {
+            for (int i = 0; i < pages.length; i++)
+                pages[i] = (LazyPage) getFragmentManager().getFragment(savedInstanceState, "page" + i);
+        }
+
+        if (pages[0] == null)
             pages[0] = new PageHome();
+        if (pages[1] == null)
             pages[1] = new PageTools();
+        if (pages[2] == null)
             pages[2] = new PageWalkThrough();
+
+        for (int i = 0; i < pages.length; i++) {
+            if (!pages[i].isAdded()) {
+                //getFragmentManager().beginTransaction().add(R.id.main_view, pages[i], "page" + i).hide(pages[i]).commit();
+            }
         }
 
         BottomNavigationView navigation = findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                int pos;
-                switch (item.getItemId()) {
-                    case R.id.navigation_home:
-                        pos = 0;
-                        break;
-                    case R.id.navigation_tools:
-                        pos = 1;
-                        break;
-                    case R.id.navigation_walkthrough:
-                        pos = 2;
-                        break;
-                    default:
-                        return false;
-                }
-
-                switchPage(pos);
-                return true;
+        navigation.setOnNavigationItemSelectedListener(item -> {
+            int pos;
+            switch (item.getItemId()) {
+                case R.id.navigation_home:
+                    pos = 0;
+                    break;
+                case R.id.navigation_tools:
+                    pos = 1;
+                    break;
+                case R.id.navigation_walkthrough:
+                    pos = 2;
+                    break;
+                default:
+                    return false;
             }
+
+            switchPage(pos);
+            return true;
         });
 
-        switchPage(0);
+        if (savedInstanceState == null)
+            switchPage(0);
+    }
+
+    //https://stackoverflow.com/questions/15313598/once-for-all-how-to-correctly-save-instance-state-of-fragments-in-back-stack
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        for (int i = 0; i < pages.length; i++) {
+            getFragmentManager().putFragment(outState, "page" + i, pages[i]);
+        }
     }
 
     private void switchPage(int position) {

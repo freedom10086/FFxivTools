@@ -5,7 +5,7 @@
     android:background="?selectableItemBackground"
     android:clickable="true"
     android:padding="8dp"
-    android:saveEnabled="true">
+    android:focusable="true">
 
     <TextView
         android:id="@+id/name"

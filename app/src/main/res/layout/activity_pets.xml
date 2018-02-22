@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xdluoyang.ffxivtools.pages.TestActivity">
+    tools:context="com.xdluoyang.ffxivtools.pages.PetsMountsActivity">
 
-    <com.xdluoyang.ffxivtools.widget.HotMapView
-        android:id="@+id/view"
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/list_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content" />
 
 </android.support.constraint.ConstraintLayout>

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xdluoyang.ffxivtools.pages.TestActivity">
+    tools:context="com.xdluoyang.ffxivtools.pages.ImageViewerActivity">
 
-    <com.xdluoyang.ffxivtools.widget.HotMapView
-        android:id="@+id/view"
+    <com.xdluoyang.ffxivtools.widget.ZoomImageView
+        android:id="@+id/image"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

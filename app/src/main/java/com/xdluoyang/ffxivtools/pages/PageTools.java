@@ -1,5 +1,6 @@
 package com.xdluoyang.ffxivtools.pages;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,8 +13,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xdluoyang.ffxivtools.R;
+import com.xdluoyang.ffxivtools.util.Util;
 
 public class PageTools extends LazyPage {
+
+    public static final String KEY_INDEX = "key_index";
 
     public static final int[] icons = new int[]{
             R.mipmap.pets, R.mipmap.mounts, R.mipmap.explore, R.mipmap.music, R.mipmap.dungeons, R.mipmap.aether,
@@ -24,8 +28,8 @@ public class PageTools extends LazyPage {
             "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览"};
 
     public static final Class<?>[] cls = new Class<?>[]{
-            null,null,null,null,null,null,
-            null,null,PageHuntHotMap.class,TestActivity.class};
+            PetsMountsActivity.class, PetsMountsActivity.class, ExploreActivity.class, null, null, null,
+            null, null, PageHuntHotMap.class, TestActivity.class};
 
     @Nullable
     @Override
@@ -34,7 +38,7 @@ public class PageTools extends LazyPage {
 
         RecyclerView recyclerView = view.findViewById(R.id.list_view);
         recyclerView.setAdapter(new MyAdapter());
-        RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity(), 2);
+        RecyclerView.LayoutManager manager = new GridLayoutManager(getActivity(), (int) (Util.getScreenWidthDP(getActivity()) / 180));
         recyclerView.setLayoutManager(manager);
 
         return view;
@@ -85,16 +89,14 @@ public class PageTools extends LazyPage {
             icon = itemView.findViewById(R.id.icon);
             title = itemView.findViewById(R.id.title);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = (int) itemView.getTag();
-                    if (cls[position] != null)
-                        switchActivity(cls[position]);
+            itemView.setOnClickListener(view -> {
+                int position = (int) itemView.getTag();
+                if (cls[position] != null) {
+                    Intent i = new Intent(getActivity(), cls[position]);
+                    i.putExtra(KEY_INDEX, position);
+                    getActivity().startActivity(i);
                 }
             });
-
-
         }
     }
 }

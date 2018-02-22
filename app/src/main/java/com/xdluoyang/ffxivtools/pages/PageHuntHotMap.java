@@ -16,7 +16,7 @@ import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.huntapi.Client;
 import com.xdluoyang.ffxivtools.huntapi.HuntItem;
 import com.xdluoyang.ffxivtools.huntapi.MapItem;
-import com.xdluoyang.ffxivtools.widget.ZoomImageView;
+import com.xdluoyang.ffxivtools.widget.HotMapView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -36,7 +36,7 @@ public class PageHuntHotMap extends ActivityBase {
     private List<MapItem> datas = new ArrayList<>();
     private Map<String, List<MapItem>> cache = new HashMap<>();
     private MyAdapter adapter;
-    private ZoomImageView mapView;
+    private HotMapView mapView;
 
     private Location[] loc2 = new Location[]{
             new Location(134, "中拉诺西亚", "MiddleLaNoscea"),

@@ -21,8 +21,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".pages.PageHuntHotMap" android:theme="@style/AppTheme.Hunt"/>
-        <activity android:name=".pages.TestActivity"/>
+        <activity
+            android:name=".pages.PageHuntHotMap"
+            android:theme="@style/AppTheme.Hunt" />
+        <activity android:name=".pages.TestActivity" />
+        <activity android:name=".pages.PetsMountsActivity" />
+        <activity android:name=".pages.PetMountDetailActivity" />
+        <activity android:name=".pages.ImageViewerActivity" />
+        <activity android:name=".pages.ExploreActivity" />
+        <activity android:name=".pages.ExploreDetailActivity"></activity>
     </application>
 
 </manifest>
