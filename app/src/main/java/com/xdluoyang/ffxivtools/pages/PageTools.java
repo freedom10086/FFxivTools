@@ -28,7 +28,7 @@ public class PageTools extends LazyPage {
             "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览"};
 
     public static final Class<?>[] cls = new Class<?>[]{
-            PetsMountsActivity.class, PetsMountsActivity.class, ExploreActivity.class, null, null, null,
+            PetsMountsActivity.class, PetsMountsActivity.class, ExploreActivity.class, MusicActivity.class, null, null,
             null, null, PageHuntHotMap.class, TestActivity.class};
 
     @Nullable
