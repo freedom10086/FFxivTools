@@ -30,7 +30,9 @@
         <activity android:name=".pages.ImageViewerActivity" />
         <activity android:name=".pages.ExploreActivity" />
         <activity android:name=".pages.ExploreDetailActivity" />
-        <activity android:name=".pages.MusicActivity"></activity>
+        <activity android:name=".pages.MusicActivity" />
+        <activity android:name=".pages.DungeonsActivity" />
+        <activity android:name=".pages.DungeonDetailActivity"></activity>
     </application>
 
 </manifest>

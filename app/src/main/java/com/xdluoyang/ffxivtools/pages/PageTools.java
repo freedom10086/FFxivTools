@@ -24,12 +24,12 @@ public class PageTools extends LazyPage {
             R.mipmap.jobtask, R.mipmap.hunt, R.mipmap.hunt, R.mipmap.dig};
 
     public static final String[] titles = new String[]{
-            "宠物一览", "坐骑一览", "探索笔记", "乐谱一览", "副本一览", "风脉泉一览",
-            "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览"};
+            "宠物一览", "坐骑一览", "探索笔记", "乐谱一览", "副本一览",
+            "风脉泉一览", "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览"};
 
     public static final Class<?>[] cls = new Class<?>[]{
-            PetsMountsActivity.class, PetsMountsActivity.class, ExploreActivity.class, MusicActivity.class, null, null,
-            null, null, PageHuntHotMap.class, TestActivity.class};
+            PetsMountsActivity.class, PetsMountsActivity.class, ExploreActivity.class, MusicActivity.class, DungeonsActivity.class,
+            null, null, null, PageHuntHotMap.class, TestActivity.class};
 
     @Nullable
     @Override

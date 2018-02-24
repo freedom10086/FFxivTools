@@ -245,8 +245,8 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
         float deltaX = 0;
         float deltaY = 0;
 
-        final float left = getX();
-        final float top = getY();
+        final float left = 0;
+        final float top = 0;
         final float right = getWidth() + left;
         final float bottom = getHeight() + top;
 
@@ -280,8 +280,8 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
         RectF rect = getMatrixRectF();
 
         float deltaX = 0, deltaY = 0;
-        final float left = getX();
-        final float top = getY();
+        final float left = 0;
+        final float top = 0;
         final float right = getWidth() + left;
         final float bottom = getHeight() + top;
         // 判断移动或缩放后，图片显示是否超出屏幕边界
@@ -462,8 +462,8 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
         imageMatrix.reset();
         //// 图片移动至屏幕中心
 
-        imageMatrix.postTranslate((width - dw) / 2 + getX(), (height - dh) / 2 + getY());
-        imageMatrix.postScale(initScale, initScale, getX() + width / 2, getY() + height / 2);
+        imageMatrix.postTranslate((width - dw) / 2, (height - dh) / 2);
+        imageMatrix.postScale(initScale, initScale, width / 2,height / 2);
         invalidate();
     }
 

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:width="34dp"
+        android:height="34dp"
+        android:drawable="@mipmap/icon_dunge_taofa" />
+    <item
+        android:width="34dp"
+        android:height="34dp"
+        android:drawable="@mipmap/ic_dunge_border" />
+    <item
+        android:width="13dp"
+        android:height="13dp"
+        android:drawable="@mipmap/ic_num_2"
+        android:left="18dp"
+        android:top="18dp" />
+</layer-list>

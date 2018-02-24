@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.MusicData;
@@ -37,11 +38,14 @@ public class MusicActivity extends ActivityBase {
     private final String[] names = new String[]{"区域场景", "迷宫挑战", "讨伐歼灭", "大型任务", "其他", "季节活动"};
     private TextView nameLabel, methodLabel, method;
     private MyAdapter myAdapter;
+    private View playBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_music);
+
+        setToolBar(true, "乐谱一览");
 
         RecyclerView recyclerView = findViewById(R.id.list_view);
         myAdapter = new MyAdapter();
@@ -54,6 +58,7 @@ public class MusicActivity extends ActivityBase {
 
         methodLabel = findViewById(R.id.method_label);
         method = findViewById(R.id.method);
+        playBtn = findViewById(R.id.play_btn);
 
         RadioGroup group = findViewById(R.id.radioGroup);
         group.setOnCheckedChangeListener((radioGroup, i) -> {
@@ -82,6 +87,20 @@ public class MusicActivity extends ActivityBase {
             }
 
             tabChange();
+        });
+
+        playBtn.setVisibility(View.INVISIBLE);
+        playBtn.setTag(-1);
+        playBtn.setOnClickListener(view -> {
+            int pos = (int) playBtn.getTag();
+            if (pos >= 0) {
+                if (!TextUtils.isEmpty(datas.get(pos).musicId))
+                    Util.openBroswer(MusicActivity.this, "https://music.163.com/#/song?id=" + datas.get(pos).musicId);
+                else
+                    Toast.makeText(MusicActivity.this, "暂无试听", Toast.LENGTH_SHORT).show();
+                //src="//music.163.com/outchain/player?type=2&id=' + csvList[i][8] + '&auto=0&height=90"
+            }
+
         });
 
         methodLabel.setVisibility(View.INVISIBLE);
@@ -113,7 +132,7 @@ public class MusicActivity extends ActivityBase {
 
                     //编号,音乐,位置,坐标,NPC,其他,备注,类型,BGM
                     while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
+                        //System.out.println(line);
                         String[] tokens = Util.readCsv(9, line);
 
                         if (!TextUtils.isEmpty(tokens[0]) && TextUtils.isDigitsOnly(tokens[0])) {
@@ -150,6 +169,9 @@ public class MusicActivity extends ActivityBase {
     }
 
     private void tabChange() {
+        playBtn.setVisibility(View.INVISIBLE);
+        playBtn.setTag(-1);
+
         nameLabel.setText(names[currentIndex - 1]);
         methodLabel.setVisibility(View.INVISIBLE);
         method.setVisibility(View.INVISIBLE);
@@ -224,11 +246,13 @@ public class MusicActivity extends ActivityBase {
 
                 methodLabel.setVisibility(View.VISIBLE);
                 method.setVisibility(View.VISIBLE);
+                playBtn.setVisibility(View.VISIBLE);
+
                 String methodS = String.format("%03d", d.num) + " - " + d.name + "\n";
                 String pos = (TextUtils.isEmpty(d.pos) ? "" : d.pos) + (TextUtils.isEmpty(d.posXy) ? "" : (":" + d.posXy));
                 methodS += pos;
-                // TODO music
-                //src="//music.163.com/outchain/player?type=2&id=' + csvList[i][8] + '&auto=0&height=90"
+
+                playBtn.setTag(position);
 
                 //编号,音乐,位置,坐标,NPC,其他,备注,类型,BGM
                 if (!TextUtils.isEmpty(pos)) {

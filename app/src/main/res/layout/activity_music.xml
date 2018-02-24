@@ -44,6 +44,7 @@
             android:layout_height="44dp"
             android:background="@drawable/music_item_bg_2"
             android:button="@null"
+            android:contentDescription="区域场景"
             android:gravity="center" />
 
         <RadioButton
@@ -53,6 +54,7 @@
             android:layout_marginStart="2dp"
             android:background="@drawable/music_item_bg_3"
             android:button="@null"
+            android:contentDescription="迷宫挑战"
             android:gravity="center" />
 
         <RadioButton
@@ -62,6 +64,7 @@
             android:layout_marginStart="2dp"
             android:background="@drawable/music_item_bg_4"
             android:button="@null"
+            android:contentDescription="讨伐歼灭"
             android:gravity="center" />
 
         <RadioButton
@@ -71,6 +74,7 @@
             android:layout_marginStart="2dp"
             android:background="@drawable/music_item_bg_5"
             android:button="@null"
+            android:contentDescription="大型任务"
             android:gravity="center" />
 
         <RadioButton
@@ -80,6 +84,7 @@
             android:layout_marginStart="2dp"
             android:background="@drawable/music_item_bg_6"
             android:button="@null"
+            android:contentDescription="其他"
             android:gravity="center" />
 
         <RadioButton
@@ -89,6 +94,7 @@
             android:layout_marginStart="2dp"
             android:background="@drawable/music_item_bg_7"
             android:button="@null"
+            android:contentDescription="季节活动"
             android:gravity="center" />
     </RadioGroup>
 
@@ -107,16 +113,16 @@
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/list_view"
-        android:scrollbars="vertical"
-        android:fadingEdge="none"
-        android:fadingEdgeLength="0dp"
-        android:overScrollMode="never"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="12dp"
+        android:fadingEdge="none"
+        android:fadingEdgeLength="0dp"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
         app:layout_constraintBottom_toTopOf="@+id/method_label"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -147,4 +153,19 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/play_btn"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="8dp"
+        android:background="?selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:contentDescription="播放"
+        android:focusable="true"
+        android:padding="4dp"
+        android:src="@drawable/ic_play_arrow_black_24dp"
+        android:tint="@android:color/darker_gray"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/method" />
 </android.support.constraint.ConstraintLayout>

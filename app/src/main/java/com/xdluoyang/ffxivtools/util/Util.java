@@ -1,6 +1,8 @@
 package com.xdluoyang.ffxivtools.util;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -72,5 +74,13 @@ public class Util {
         }
 
         return tokens;
+    }
+
+    public static void openBroswer(Context activity, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Uri content_url = Uri.parse(url);
+        intent.setData(content_url);
+        activity.startActivity(intent);
     }
 }
