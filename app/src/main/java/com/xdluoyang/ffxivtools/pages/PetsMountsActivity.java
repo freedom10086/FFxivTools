@@ -46,6 +46,7 @@ public class PetsMountsActivity extends ActivityBase {
         setContentView(R.layout.activity_pets);
 
         type = getIntent().getIntExtra(PageTools.KEY_INDEX, TYPE_PETS);
+        setToolBar(true, type == TYPE_PETS ? "宠物一览" : "坐骑一览");
 
         int width = (int) Util.getScreenWidthDP(this);
         RecyclerView recyclerView = findViewById(R.id.list_view);

@@ -37,8 +37,6 @@ public class DungeonDetailActivity extends ActivityBase {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dungeon_detail);
-        getWindow().setStatusBarColor(ContextCompat.getColor(this, android.R.color.transparent));
-
         DungeonData d = getIntent().getParcelableExtra(KEY_DUNGEON);
         if (d == null) {
             return;

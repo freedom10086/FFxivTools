@@ -12,10 +12,24 @@
     android:paddingStart="8dp"
     android:paddingTop="10dp">
 
-    <ImageView
-        android:id="@+id/icon"
+    <FrameLayout
         android:layout_width="40dp"
-        android:layout_height="40dp" />
+        android:layout_height="40dp">
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/test_grid"
+            android:layout_margin="2dp"/>
+
+        <ImageView
+            android:id="@+id/icon_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@mipmap/grid_bg" />
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/title"

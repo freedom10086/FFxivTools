@@ -89,9 +89,6 @@ public class PageHuntHotMap extends ActivityBase {
         super.onCreate(savedInstanceState);
 
         setToolBar(true, "狩猎热点图");
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(Color.TRANSPARENT);
-        }
         setContentView(R.layout.activity_hunt_hot_map);
 
         RecyclerView recyclerView = findViewById(R.id.list_view);
@@ -111,19 +108,16 @@ public class PageHuntHotMap extends ActivityBase {
             public void onResponse(Call<List<MapItem>> call, retrofit2.Response<List<MapItem>> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     datas = response.body();
-                    Collections.sort(datas, new Comparator<MapItem>() {
-                        @Override
-                        public int compare(MapItem t0, MapItem t1) {
-                            if (t0.MapID > t1.MapID)
-                                return 1;
-                            else if (t0.MapID < t1.MapID)
+                    Collections.sort(datas, (t0, t1) -> {
+                        if (t0.MapID > t1.MapID)
+                            return 1;
+                        else if (t0.MapID < t1.MapID)
+                            return -1;
+                        else {
+                            if (Objects.equals(t0.Type, "S")) return -1;
+                            if (Objects.equals(t0.Type, "A") && Objects.equals(t1.Type, "B"))
                                 return -1;
-                            else {
-                                if (Objects.equals(t0.Type, "S")) return -1;
-                                if (Objects.equals(t0.Type, "A") && Objects.equals(t1.Type, "B"))
-                                    return -1;
-                                return 1;
-                            }
+                            return 1;
                         }
                     });
 
@@ -188,20 +182,17 @@ public class PageHuntHotMap extends ActivityBase {
 
             name = itemView.findViewById(R.id.name);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    int position = (int) itemView.getTag();
-                    loadDetail(datas.get(position).Name);
-                    int mapId = datas.get(position).MapID;
-                    String mapName = getMapName(mapId);
+            itemView.setOnClickListener(view -> {
+                int position = (int) itemView.getTag();
+                loadDetail(datas.get(position).Name);
+                int mapId = datas.get(position).MapID;
+                String mapName = getMapName(mapId);
 
-                    mapView.setData(null);
-                    if (mapName != null)
-                        Picasso.with(PageHuntHotMap.this)
-                                .load("https://hunt.ffxiv.xin/img/map/500/"+mapName+".png")
-                                .into(mapView);
-                }
+                mapView.setData(null);
+                if (mapName != null)
+                    Picasso.with(PageHuntHotMap.this)
+                            .load("https://hunt.ffxiv.xin/img/map/500/"+mapName+".png")
+                            .into(mapView);
             });
         }
     }

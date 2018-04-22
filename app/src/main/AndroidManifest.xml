@@ -9,11 +9,10 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Main2Activity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,16 +22,20 @@
         </activity>
         <activity
             android:name=".pages.PageHuntHotMap"
-            android:theme="@style/AppTheme.Hunt" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pages.TestActivity" />
         <activity android:name=".pages.PetsMountsActivity" />
         <activity android:name=".pages.PetMountDetailActivity" />
         <activity android:name=".pages.ImageViewerActivity" />
         <activity android:name=".pages.ExploreActivity" />
         <activity android:name=".pages.ExploreDetailActivity" />
-        <activity android:name=".pages.MusicActivity" />
+        <activity
+            android:name=".pages.MusicActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pages.DungeonsActivity" />
-        <activity android:name=".pages.DungeonDetailActivity"></activity>
+        <activity
+            android:name=".pages.DungeonDetailActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
