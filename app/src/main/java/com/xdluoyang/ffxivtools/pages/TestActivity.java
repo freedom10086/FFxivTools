@@ -15,7 +15,7 @@ public class TestActivity extends Activity {
         setContentView(R.layout.activity_test);
 
         HotMapView imageView = findViewById(R.id.view);
-        Picasso.with(this).load("https://hunt.ffxiv.xin/img/map/500/EasternThanalan.png").into(imageView);
+        Picasso.get().load("https://hunt.ffxiv.xin/img/map/500/EasternThanalan.png").into(imageView);
 
     }
 }

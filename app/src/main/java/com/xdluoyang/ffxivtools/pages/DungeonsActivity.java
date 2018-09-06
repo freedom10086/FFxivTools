@@ -185,7 +185,7 @@ public class DungeonsActivity extends ActivityBase {
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(position + start);
 
-            Picasso.with(DungeonsActivity.this)
+            Picasso.get()
                     .load("http://tools.ffxiv.cn/dajipai/tupian/dungeons/" + datas.get(position + start).id + ".png")
                     .into(holder.image);
 

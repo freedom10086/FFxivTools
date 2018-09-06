@@ -44,13 +44,13 @@ public class ExploreDetailActivity extends ActivityBase {
         action = findViewById(R.id.action);
         actionCode = findViewById(R.id.action_code);
 
-        Picasso.with(this).load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.bigId + ".png").into(imageView);
+        Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.bigId + ".png").into(imageView);
         if (TextUtils.isEmpty(e.image1)) {
             imageView1.setVisibility(View.GONE);
         } else {
             imageView1.setVisibility(View.VISIBLE);
             String src = "http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image1 + ".jpg";
-            Picasso.with(this).load(src).into(imageView1);
+            Picasso.get().load(src).into(imageView1);
             imageView1.setOnClickListener(view -> ImageViewerActivity.openWithAnimation(ExploreDetailActivity.this, e.num + " " + e.name, src, imageView1));
         }
 
@@ -59,7 +59,7 @@ public class ExploreDetailActivity extends ActivityBase {
         } else {
             imageView2.setVisibility(View.VISIBLE);
             String src = "http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image2 + ".jpg";
-            Picasso.with(this).load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image2 + ".jpg").into(imageView2);
+            Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image2 + ".jpg").into(imageView2);
             imageView2.setOnClickListener(view -> ImageViewerActivity.openWithAnimation(ExploreDetailActivity.this, e.num + " " + e.name, src, imageView2));
         }
 
@@ -83,10 +83,10 @@ public class ExploreDetailActivity extends ActivityBase {
             weatherImage.setVisibility(View.VISIBLE);
 
             weather.setText(e.wether);
-            Picasso.with(this).load("http://tools.ffxiv.cn/dajipai/tupian/weather/" + e.wetherImage + ".png").into(weatherImage);
+            Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/weather/" + e.wetherImage + ".png").into(weatherImage);
         }
 
-        Picasso.with(this).load("http://tools.ffxiv.cn/dajipai/tupian/action/" + e.actionImage + ".png").into(actionImage);
+        Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/action/" + e.actionImage + ".png").into(actionImage);
 
         action.setText(e.action);
         actionCode.setText(e.actionCode);

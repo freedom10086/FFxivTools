@@ -183,7 +183,7 @@ public class PetsMountsActivity extends ActivityBase {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(position);
-            Picasso.with(PetsMountsActivity.this).load("http://tools.ffxiv.cn/dajipai/tupian/chongwuzuoqi-ui/"
+            Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/chongwuzuoqi-ui/"
                     + datas.get(position).id + ".png")
                     .into(holder.icon);
         }

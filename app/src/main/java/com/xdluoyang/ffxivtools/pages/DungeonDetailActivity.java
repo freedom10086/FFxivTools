@@ -43,7 +43,7 @@ public class DungeonDetailActivity extends ActivityBase {
         }
 
         image = findViewById(R.id.image);
-        Picasso.with(this)
+        Picasso.get()
                 .load("http://tools.ffxiv.cn/dajipai/tupian/dungeons/" + d.id + ".png")
                 .into(image);
         ViewCompat.setTransitionName(image, NAME_IMG);

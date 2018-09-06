@@ -190,7 +190,7 @@ public class PageHuntHotMap extends ActivityBase {
 
                 mapView.setData(null);
                 if (mapName != null)
-                    Picasso.with(PageHuntHotMap.this)
+                    Picasso.get()
                             .load("https://hunt.ffxiv.xin/img/map/500/"+mapName+".png")
                             .into(mapView);
             });

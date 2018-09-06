@@ -58,7 +58,7 @@ public class ImageViewerActivity extends ActivityBase {
         ZoomImageView imageView = findViewById(R.id.image);
 
         ViewCompat.setTransitionName(imageView, KEY_TRANS);
-        Picasso.with(this).load(getIntent().getStringExtra(KEY_SRC)).into(imageView);
+        Picasso.get().load(getIntent().getStringExtra(KEY_SRC)).into(imageView);
     }
 
     @Override

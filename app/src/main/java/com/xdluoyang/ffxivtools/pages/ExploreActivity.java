@@ -123,7 +123,7 @@ public class ExploreActivity extends ActivityBase {
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(start + position);
 
-            Picasso.with(ExploreActivity.this)
+            Picasso.get()
                     .load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + datas.get(start + position).id + ".png")
                     .into(holder.icon);
         }

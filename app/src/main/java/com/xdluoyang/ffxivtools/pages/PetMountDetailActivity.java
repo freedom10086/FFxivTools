@@ -35,7 +35,7 @@ public class PetMountDetailActivity extends ActivityBase {
         method = findViewById(R.id.method);
         description = findViewById(R.id.des);
 
-        Picasso.with(this)
+        Picasso.get()
                 .load("http://tools.ffxiv.cn/dajipai/tupian/chongwuzuoqi/" + p.bigId + ".png")
                 .into(image);
         name.setText(p.name);
