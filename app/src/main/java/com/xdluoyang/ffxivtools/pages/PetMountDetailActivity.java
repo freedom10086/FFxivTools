@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.PetMountData;
 
@@ -35,7 +35,7 @@ public class PetMountDetailActivity extends BaseActivity {
         method = findViewById(R.id.method);
         description = findViewById(R.id.des);
 
-        Picasso.get()
+        Glide.with(this)
                 .load("https://tools.ffxiv.cn/lajipai/image/chongwuzuoqi/" + p.bigId + ".png")
                 .into(image);
         name.setText(p.name);

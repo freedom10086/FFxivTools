@@ -3,6 +3,7 @@ package com.xdluoyang.ffxivtools.util;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
@@ -24,50 +25,56 @@ public class Util {
         return dpWidth;
     }
 
-    public static String[] readCsv(int tokenCount, String l) {
+    public static String[] readCsv(int tokenCount, String content) {
         int index = 0;
         int start = 0;
         boolean isIn = false;
         String[] tokens = new String[tokenCount];
 
-        for (int i = 0; i < l.length(); i++) {
-            if (l.charAt(i) == '"') {
-                if (!isIn && (i == 0 || l.charAt(i - 1) == ',')) {
+        for (int i = 0; i < content.length(); i++) {
+            if (content.charAt(i) == '"') {
+                if (!isIn && (i == 0 || content.charAt(i - 1) == ',')) {
                     start = i;
                     isIn = true;
-                } else if (isIn && (i == l.length() - 1 || l.charAt(i + 1) == ',')) {
+                } else if (isIn && (i == content.length() - 1 || content.charAt(i + 1) == ',')) {
                     isIn = false;
                 }
             } else if (isIn) {
                 continue;
-            } else if (l.charAt(i) == ',') {
+            } else if (content.charAt(i) == ',') {
                 int end = i;
                 if (index >= tokenCount) {
-                    Log.e("==err==", l);
+                    Log.e("==err==", content);
                     break;
                 }
                 if (start == end) {
                     tokens[index] = "";
                 } else {
-                    tokens[index] = l.substring(start, end);
+                    tokens[index] = content.substring(start, end);
                 }
 
                 start = i + 1;
                 index++;
-            } else if (i == l.length() - 1) { //到最后了
-                int end = l.length();
+            } else if (i == content.length() - 1) { //到最后了
+                int end = content.length();
                 if (start < end) {
                     if (index >= tokenCount) {
-                        Log.e("==err==", l);
+                        Log.e("==err==", content);
                         break;
                     }
-                    tokens[index] = l.substring(start, end);
+                    tokens[index] = content.substring(start, end);
                 }
             }
         }
 
         for (int k = 0; k < tokenCount - index - 1; k++) {
             tokens[k + index + 1] = "";
+        }
+
+        for (int i = 0; i < tokens.length; i++) {
+            if (!TextUtils.isEmpty(tokens[i]) && tokens[i].contains("br")) {
+                tokens[i] = tokens[i].replaceAll("<br\\s?/>", "\n");
+            }
         }
 
         return tokens;

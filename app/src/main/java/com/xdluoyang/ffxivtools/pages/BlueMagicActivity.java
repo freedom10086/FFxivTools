@@ -3,20 +3,19 @@ package com.xdluoyang.ffxivtools.pages;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
-import com.bumptech.glide.Glide;
-import com.google.android.material.tabs.TabLayout;
-
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
-import com.xdluoyang.ffxivtools.model.ExploreData;
+import com.xdluoyang.ffxivtools.model.BlueMagicData;
 import com.xdluoyang.ffxivtools.util.Util;
 
 import java.io.BufferedReader;
@@ -31,18 +30,18 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class ExploreActivity extends BaseActivity {
+
+public class BlueMagicActivity extends BaseActivity {
 
     private MyAdapter adapter;
-    private List<ExploreData> datas = new ArrayList<>();
-    private TabLayout tabLayout;
+    private List<BlueMagicData> datas = new ArrayList<>(128);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_explore);
+        setContentView(R.layout.activity_blue_magic);
 
-        setToolBar(true, "探索笔记");
+        setToolBar(true, "青魔法书");
 
         int width = (int) Util.getScreenWidthDP(this);
         RecyclerView recyclerView = findViewById(R.id.list_view);
@@ -51,35 +50,14 @@ public class ExploreActivity extends BaseActivity {
         RecyclerView.LayoutManager manager = new GridLayoutManager(this, width / 70);
         recyclerView.setLayoutManager(manager);
 
-
-        tabLayout = findViewById(R.id.tab);
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                adapter.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
-
         loadList();
-
     }
-
 
     private void loadList() {
         final Handler mainHandler = new Handler(getMainLooper());
         OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("https://tools.ffxiv.cn/lajipai/csv/explore.csv")
+                .url("https://tools.ffxiv.cn/lajipai/csv/qm.csv")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -93,18 +71,17 @@ public class ExploreActivity extends BaseActivity {
                 if (response.isSuccessful()) {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(response.body().byteStream()));
                     String line = "";
-                    ////小图代码,大图代码,顺序,名称,版本,地点,X,Y,天气,天气图片,时间,动作,动作代码,动作图片,备注,位置图片1,位置图片2
+                    //编号,小图标,大图标,名称,类型,属性,稀有度,获得方法,类别,技能效果,敌人等级
                     while ((line = reader.readLine()) != null) {
-                        String[] tokens = Util.readCsv(17, line);
-                        datas.add(new ExploreData(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4],
-                                tokens[5], tokens[6], tokens[7], tokens[8], tokens[9], tokens[10], tokens[11],
-                                tokens[12], tokens[13], tokens[14], tokens[15], tokens[16]));
+                        String[] tokens = Util.readCsv(11, line);
+                        if (TextUtils.isEmpty(tokens[0]) || !TextUtils.isDigitsOnly(tokens[0])) {
+                            Log.w("BlueMagicActivity", "invalid line, " + line);
+                            continue;
+                        }
+                        datas.add(new BlueMagicData(Integer.parseInt(tokens[0]), tokens[1], tokens[2], tokens[3], tokens[4],
+                                tokens[5], tokens[6], tokens[7], tokens[8], tokens[9], tokens[10]));
                     }
-
-                    if (datas.size() > 1) {
-                        datas.remove(0);
-                        mainHandler.post(() -> adapter.notifyDataSetChanged());
-                    }
+                    mainHandler.post(() -> adapter.notifyDataSetChanged());
                 }
             }
         });
@@ -112,7 +89,6 @@ public class ExploreActivity extends BaseActivity {
 
 
     private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
-        private int start;
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -124,24 +100,15 @@ public class ExploreActivity extends BaseActivity {
 
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
-            holder.itemView.setTag(start + position);
-            Glide.with(findViewById(R.id.list_view))
-                    .load("https://tools.ffxiv.cn/lajipai/image/explore/" + datas.get(start + position).id + ".png")
+            holder.itemView.setTag(position);
+            Glide.with(findViewById(R.id.list_view)).load("https://tools.ffxiv.cn/lajipai/image/qingmo-ui/"
+                    + datas.get(position).imgSmall + ".png")
                     .into(holder.icon);
         }
 
         @Override
         public int getItemCount() {
-            int count = 0;
-            for (int i = 0; i < datas.size(); i++) {
-                ExploreData d = datas.get(i);
-                if (d.version == tabLayout.getSelectedTabPosition()) {
-                    if (count == 0)
-                        start = i;
-                    count++;
-                }
-            }
-            return count;
+            return datas.size();
         }
     }
 
@@ -155,8 +122,8 @@ public class ExploreActivity extends BaseActivity {
 
             itemView.setOnClickListener(view -> {
                 int position = (int) itemView.getTag();
-                Intent i = new Intent(ExploreActivity.this, ExploreDetailActivity.class);
-                i.putExtra(ExploreDetailActivity.KEY_EXPLORE, datas.get(position));
+                Intent i = new Intent(BlueMagicActivity.this, BlueMagicDetailActivity.class);
+                i.putExtra(BlueMagicDetailActivity.KEY_MAGIC, datas.get(position));
                 startActivity(i);
             });
         }

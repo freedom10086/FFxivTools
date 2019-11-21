@@ -38,6 +38,8 @@
         <activity
             android:name=".pages.DungeonDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".pages.BlueMagicActivity" />
+        <activity android:name=".pages.BlueMagicDetailActivity" />
     </application>
 
 </manifest>

@@ -2,10 +2,6 @@ package com.xdluoyang.ffxivtools.pages;
 
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +10,10 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.DungeonData;
 import com.xdluoyang.ffxivtools.util.Util;
@@ -25,7 +24,6 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -59,42 +57,12 @@ public class DungeonsActivity extends BaseActivity {
 
         group = findViewById(R.id.radioGroup);
         group.setOnCheckedChangeListener((radioGroup, i) -> {
-            switch (i) {
-                case R.id.btn1:
-                    currentIndex = 0;
+            for (int index = 0; index < group.getChildCount(); index++) {
+                if (group.getChildAt(index).getId() == i) {
+                    currentIndex = index;
                     break;
-                case R.id.btn2:
-                    currentIndex = 1;
-                    break;
-                case R.id.btn3:
-                    currentIndex = 2;
-                    break;
-                case R.id.btn4:
-                    currentIndex = 3;
-                    break;
-                case R.id.btn5:
-                    currentIndex = 4;
-                    break;
-                case R.id.btn6:
-                    currentIndex = 5;
-                    break;
-                case R.id.btn7:
-                    currentIndex = 6;
-                    break;
-                case R.id.btn8:
-                    currentIndex = 7;
-                    break;
-                case R.id.btn9:
-                    currentIndex = 8;
-                    break;
-                case R.id.btn10:
-                    currentIndex = 9;
-                    break;
-                default:
-                    currentIndex = 0;
-                    break;
+                }
             }
-
             tabChange();
         });
 
@@ -155,7 +123,7 @@ public class DungeonsActivity extends BaseActivity {
                         }
 
                         datas.add(new DungeonData(tokens[0], sort, tokens[2], tokens[3], tokens[4],
-                                tokens[5], tokens[6], tokens[7], tokens[8], belong, type));
+                                tokens[6], tokens[5], tokens[7], tokens[8], belong, type));
                     }
 
                     if (datas.size() > 1) {
@@ -164,8 +132,12 @@ public class DungeonsActivity extends BaseActivity {
                             if (t0.type > t1.type) return 1;
                             else if (t0.type < t1.type) return -1;
                             else {
-                                if (t0.sort > t1.sort) return 1;
-                                else return -1;
+                                if (t0.belong > t1.belong) return 1;
+                                else if (t0.belong < t1.belong) return -1;
+                                else {
+                                    return Integer.compare(t0.sort, t1.sort);
+                                }
+
                             }
                         });
                         mainHandler.post(() -> myAdapter.notifyDataSetChanged());
@@ -191,15 +163,19 @@ public class DungeonsActivity extends BaseActivity {
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(position + start);
 
-            Picasso.get()
+            Glide.with(DungeonsActivity.this)
                     .load("https://tools.ffxiv.cn/lajipai/image/dungeons/" + datas.get(position + start).id + ".png")
                     .into(holder.image);
-
             holder.name.setText(datas.get(position + start).name);
         }
 
         @Override
         public int getItemCount() {
+            if (currentIndex == 12) {
+                start = 0;
+                return datas.size();
+            }
+
             int belong = currentIndex % 4 + 2;
             int type = currentIndex / 4 + 1;
 

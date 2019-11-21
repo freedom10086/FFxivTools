@@ -13,7 +13,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.view.ViewCompat;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.widget.ZoomImageView;
 
@@ -57,7 +57,7 @@ public class ImageViewerActivity extends BaseActivity {
         ZoomImageView imageView = findViewById(R.id.image);
 
         ViewCompat.setTransitionName(imageView, KEY_TRANS);
-        Picasso.get().load(getIntent().getStringExtra(KEY_SRC)).into(imageView);
+        Glide.with(this).load(getIntent().getStringExtra(KEY_SRC)).into(imageView);
     }
 
     @Override

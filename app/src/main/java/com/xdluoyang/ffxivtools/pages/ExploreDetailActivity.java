@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.ExploreData;
 
@@ -42,13 +42,13 @@ public class ExploreDetailActivity extends BaseActivity {
         action = findViewById(R.id.action);
         actionCode = findViewById(R.id.action_code);
 
-        Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/explore/" + e.bigId + ".png").into(imageView);
+        Glide.with(this).load("https://tools.ffxiv.cn/lajipai/image/explore/" + e.bigId + ".png").into(imageView);
         if (TextUtils.isEmpty(e.image1)) {
             imageView1.setVisibility(View.GONE);
         } else {
             imageView1.setVisibility(View.VISIBLE);
             String src = "https://tools.ffxiv.cn/lajipai/image/explore/" + e.image1 + ".jpg";
-            Picasso.get().load(src).into(imageView1);
+            Glide.with(this).load(src).into(imageView1);
             imageView1.setOnClickListener(view -> ImageViewerActivity.openWithAnimation(ExploreDetailActivity.this, e.num + " " + e.name, src, imageView1));
         }
 
@@ -57,7 +57,7 @@ public class ExploreDetailActivity extends BaseActivity {
         } else {
             imageView2.setVisibility(View.VISIBLE);
             String src = "https://tools.ffxiv.cn/lajipai/image/explore/" + e.image2 + ".jpg";
-            Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/explore/" + e.image2 + ".jpg").into(imageView2);
+            Glide.with(this).load("https://tools.ffxiv.cn/lajipai/image/explore/" + e.image2 + ".jpg").into(imageView2);
             imageView2.setOnClickListener(view -> ImageViewerActivity.openWithAnimation(ExploreDetailActivity.this, e.num + " " + e.name, src, imageView2));
         }
 
@@ -81,10 +81,10 @@ public class ExploreDetailActivity extends BaseActivity {
             weatherImage.setVisibility(View.VISIBLE);
 
             weather.setText(e.wether);
-            Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/weather/" + e.wetherImage + ".png").into(weatherImage);
+            Glide.with(this).load("https://tools.ffxiv.cn/lajipai/image/weather/" + e.wetherImage + ".png").into(weatherImage);
         }
 
-        Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/action/" + e.actionImage + ".png").into(actionImage);
+        Glide.with(this).load("https://tools.ffxiv.cn/lajipai/image/action/" + e.actionImage + ".png").into(actionImage);
 
         action.setText(e.action);
         actionCode.setText(e.actionCode);

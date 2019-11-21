@@ -13,7 +13,7 @@ import android.widget.ImageView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.PetMountData;
 import com.xdluoyang.ffxivtools.util.Util;
@@ -34,7 +34,6 @@ import okhttp3.Response;
 
 public class MountsActivity extends BaseActivity {
 
-    private int type;
     private MyAdapter adapter;
     private List<PetMountData> datas = new ArrayList<>(300);
 
@@ -171,7 +170,7 @@ public class MountsActivity extends BaseActivity {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(position);
-            Picasso.get().load("https://tools.ffxiv.cn/lajipai//image/chongwuzuoqi-ui/"
+            Glide.with(findViewById(R.id.list_view)).load("https://tools.ffxiv.cn/lajipai//image/chongwuzuoqi-ui/"
                     + datas.get(position).id + ".png")
                     .into(holder.icon);
         }

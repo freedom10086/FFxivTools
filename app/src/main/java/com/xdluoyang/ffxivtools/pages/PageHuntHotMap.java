@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.huntapi.Client;
 import com.xdluoyang.ffxivtools.huntapi.HuntItem;
@@ -187,7 +187,7 @@ public class PageHuntHotMap extends BaseActivity {
 
                 mapView.setData(null);
                 if (mapName != null)
-                    Picasso.get()
+                    Glide.with(mapView)
                             .load("https://hunt.ffxiv.xin/img/map/500/"+mapName+".png")
                             .into(mapView);
             });

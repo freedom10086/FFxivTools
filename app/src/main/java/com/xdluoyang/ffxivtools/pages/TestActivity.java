@@ -3,7 +3,7 @@ package com.xdluoyang.ffxivtools.pages;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.widget.HotMapView;
 
@@ -15,7 +15,7 @@ public class TestActivity extends Activity {
         setContentView(R.layout.activity_test);
 
         HotMapView imageView = findViewById(R.id.view);
-        Picasso.get().load("https://hunt.ffxiv.xin/img/map/500/EasternThanalan.png").into(imageView);
+        Glide.with(this).load("https://hunt.ffxiv.xin/img/map/500/EasternThanalan.png").into(imageView);
 
     }
 }

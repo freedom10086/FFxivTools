@@ -2,9 +2,11 @@ package com.xdluoyang.ffxivtools.pages;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,16 +22,19 @@ public class PageTools extends LazyPage {
     public static final String KEY_INDEX = "key_index";
 
     public static final int[] icons = new int[]{
-            R.mipmap.pets, R.mipmap.mounts, R.mipmap.explore, R.mipmap.music, R.mipmap.dungeons, R.mipmap.aether,
-            R.mipmap.jobtask, R.mipmap.hunt, R.mipmap.hunt, R.mipmap.dig};
+            R.mipmap.ic_pets, R.mipmap.ic_mounts, R.mipmap.ic_explore, R.mipmap.ic_music, R.mipmap.ic_dungeons, R.mipmap.ic_aether,
+            R.mipmap.ic_jobtask, R.mipmap.ic_hunt, R.mipmap.ic_hunt, R.mipmap.ic_dig,
+            R.mipmap.ic_blue_magic};
 
     public static final String[] titles = new String[]{
             "宠物一览", "坐骑一览", "探索笔记", "乐谱一览", "副本一览",
-            "风脉泉一览", "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览"};
+            "风脉泉一览", "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览",
+            "青魔法书"};
 
     public static final Class<?>[] cls = new Class<?>[]{
             PetsActivity.class, MountsActivity.class, ExploreActivity.class, MusicActivity.class, DungeonsActivity.class,
-            null, null, null, PageHuntHotMap.class, TestActivity.class};
+            null, null, null, PageHuntHotMap.class, TestActivity.class,
+            BlueMagicActivity.class};
 
     @Nullable
     @Override
