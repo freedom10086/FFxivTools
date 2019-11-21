@@ -5,20 +5,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.ImageView;
+
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
 
 import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.widget.ZoomImageView;
 
-public class ImageViewerActivity extends ActivityBase {
+public class ImageViewerActivity extends BaseActivity {
 
     public static boolean needAnimate = false;
     public static final String KEY_TILE = "key_title";

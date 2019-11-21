@@ -1,26 +1,20 @@
 package com.xdluoyang.ffxivtools.model;
 
-//编号,音乐,位置,坐标,NPC,其他,备注,类型,BGM
+//乐谱名（日）,乐谱名（中）,获得方法,编号,类型,网易云,网易云类型（0无、2音乐、3电台）
 public class MusicData {
     public int num;
     public String name;
-    public String pos;
-    public String posXy;
-    public String npc;
-    public String others;
-    public String comment;
+    public String method;
     public int type;
     public String musicId;
+    public String musicType;
 
-    public MusicData(int num, String name, String pos, String posXy, String npc, String others, String comment, int type, String musicId) {
+    public MusicData(int num, String name, String method, int type, String musicId, String musicType) {
         this.num = num;
         this.name = name;
-        this.pos = pos;
-        this.posXy = posXy;
-        this.npc = npc;
-        this.others = others;
-        this.comment = comment;
+        this.method = method;
         this.type = type;
         this.musicId = musicId;
+        this.musicType = musicType;
     }
 }

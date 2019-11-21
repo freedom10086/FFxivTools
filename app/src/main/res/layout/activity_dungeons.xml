@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -23,7 +23,7 @@
             android:id="@+id/btn1"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_1"
+            android:background="@drawable/dunge_item_bg_1_1"
             android:button="@null"
             android:contentDescription="迷宫挑战(新生)"
             android:gravity="center" />
@@ -32,7 +32,7 @@
             android:id="@+id/btn2"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_2"
+            android:background="@drawable/dunge_item_bg_1_2"
             android:button="@null"
             android:contentDescription="迷宫挑战(苍穹)"
             android:gravity="center" />
@@ -41,7 +41,7 @@
             android:id="@+id/btn3"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_3"
+            android:background="@drawable/dunge_item_bg_1_3"
             android:button="@null"
             android:contentDescription="迷宫挑战(红莲)"
             android:gravity="center" />
@@ -50,61 +50,89 @@
             android:id="@+id/btn4"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_4"
+            android:background="@drawable/dunge_item_bg_1_4"
             android:button="@null"
-            android:contentDescription="讨伐歼灭(新生)"
+            android:contentDescription="迷宫挑战(漆黑)"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/btn5"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_5"
+            android:background="@drawable/dunge_item_bg_2_1"
             android:button="@null"
-            android:contentDescription="讨伐歼灭(苍穹)"
+            android:contentDescription="讨伐歼灭(新生)"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/btn6"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_6"
+            android:background="@drawable/dunge_item_bg_2_2"
             android:button="@null"
-            android:contentDescription="讨伐歼灭(红莲)"
+            android:contentDescription="讨伐歼灭(苍穹)"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/btn7"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_7"
+            android:background="@drawable/dunge_item_bg_2_3"
             android:button="@null"
-            android:contentDescription="大型任务(新生)"
+            android:contentDescription="讨伐歼灭(红莲)"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/btn8"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_8"
+            android:background="@drawable/dunge_item_bg_2_4"
             android:button="@null"
-            android:contentDescription="大型任务(苍穹)"
+            android:contentDescription="讨伐歼灭(漆黑)"
             android:gravity="center" />
+
 
         <RadioButton
             android:id="@+id/btn9"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_9"
+            android:background="@drawable/dunge_item_bg_3_1"
             android:button="@null"
-            android:contentDescription="大型任务(红莲)"
+            android:contentDescription="大型任务(新生)"
             android:gravity="center" />
 
         <RadioButton
             android:id="@+id/btn10"
             android:layout_width="34dp"
             android:layout_height="34dp"
-            android:background="@drawable/dunge_item_bg_10"
+            android:background="@drawable/dunge_item_bg_3_2"
+            android:button="@null"
+            android:contentDescription="大型任务(苍穹)"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/btn11"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/dunge_item_bg_3_3"
+            android:button="@null"
+            android:contentDescription="大型任务(红莲)"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/btn12"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/dunge_item_bg_3_4"
+            android:button="@null"
+            android:contentDescription="大型任务(漆黑)"
+            android:gravity="center" />
+
+        <RadioButton
+            android:id="@+id/btn13"
+            android:layout_width="34dp"
+            android:layout_height="34dp"
+            android:background="@drawable/dunge_item_bg_4"
             android:button="@null"
             android:contentDescription="其他"
             android:gravity="center" />
@@ -123,7 +151,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
-    <android.support.v7.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -137,4 +165,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

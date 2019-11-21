@@ -3,17 +3,15 @@ package com.xdluoyang.ffxivtools;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.BottomNavigationView;
-import android.view.MenuItem;
 
-import com.xdluoyang.ffxivtools.pages.ActivityBase;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.xdluoyang.ffxivtools.pages.BaseActivity;
 import com.xdluoyang.ffxivtools.pages.LazyPage;
 import com.xdluoyang.ffxivtools.pages.PageHome;
 import com.xdluoyang.ffxivtools.pages.PageTools;
 import com.xdluoyang.ffxivtools.pages.PageWalkThrough;
 
-public class MainActivity extends ActivityBase {
+public class MainActivity extends BaseActivity {
 
     private int currentPage = 0;
     private LazyPage[] pages = new LazyPage[3];

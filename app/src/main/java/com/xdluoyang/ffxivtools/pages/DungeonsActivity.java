@@ -2,9 +2,10 @@ package com.xdluoyang.ffxivtools.pages;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +17,6 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.DungeonData;
-import com.xdluoyang.ffxivtools.model.MusicData;
 import com.xdluoyang.ffxivtools.util.Util;
 
 import java.io.BufferedReader;
@@ -33,7 +33,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class DungeonsActivity extends ActivityBase {
+public class DungeonsActivity extends BaseActivity {
 
     private TextView nameLabel;
     private int currentIndex = 0;
@@ -113,7 +113,7 @@ public class DungeonsActivity extends ActivityBase {
         final Handler mainHandler = new Handler(getMainLooper());
         OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://tools.ffxiv.cn/dajipai/csv/dungeons.csv")
+                .url("https://tools.ffxiv.cn/lajipai/csv/dungeons.csv")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -129,8 +129,9 @@ public class DungeonsActivity extends ActivityBase {
                     String line = "";
                     int sort;
                     int type;
+                    int belong;
 
-                    //编码,顺序,所属,副本名称,任务,位置,坐标,NPC,装等限制,类型,是否主线
+                    //编码,顺序,副本名称,任务,位置,NPC,地图map,装等限制,等级,所属,类型
                     while ((line = reader.readLine()) != null) {
                         System.out.println(line);
                         String[] tokens = Util.readCsv(11, line);
@@ -141,14 +142,20 @@ public class DungeonsActivity extends ActivityBase {
                             sort = Integer.MAX_VALUE;
                         }
 
-                        if (!TextUtils.isEmpty(tokens[9]) && TextUtils.isDigitsOnly(tokens[9])) {
-                            type = Integer.parseInt(tokens[9]);
+                        if (!TextUtils.isEmpty(tokens[10]) && TextUtils.isDigitsOnly(tokens[10])) {
+                            type = Integer.parseInt(tokens[10]);
                         } else {
                             type = 10;
                         }
 
-                        datas.add(new DungeonData(tokens[0], sort, tokens[3], tokens[4], tokens[5],
-                                tokens[6], tokens[7], tokens[8], type, Objects.equals(tokens[10], "1")));
+                        if (!TextUtils.isEmpty(tokens[9]) && TextUtils.isDigitsOnly(tokens[9])) {
+                            belong = Integer.parseInt(tokens[9]);
+                        } else {
+                            belong = 0;
+                        }
+
+                        datas.add(new DungeonData(tokens[0], sort, tokens[2], tokens[3], tokens[4],
+                                tokens[5], tokens[6], tokens[7], tokens[8], belong, type));
                     }
 
                     if (datas.size() > 1) {
@@ -172,7 +179,6 @@ public class DungeonsActivity extends ActivityBase {
 
     private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
-
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v = LayoutInflater.from(parent.getContext())
@@ -186,7 +192,7 @@ public class DungeonsActivity extends ActivityBase {
             holder.itemView.setTag(position + start);
 
             Picasso.get()
-                    .load("http://tools.ffxiv.cn/dajipai/tupian/dungeons/" + datas.get(position + start).id + ".png")
+                    .load("https://tools.ffxiv.cn/lajipai/image/dungeons/" + datas.get(position + start).id + ".png")
                     .into(holder.image);
 
             holder.name.setText(datas.get(position + start).name);
@@ -194,10 +200,13 @@ public class DungeonsActivity extends ActivityBase {
 
         @Override
         public int getItemCount() {
+            int belong = currentIndex % 4 + 2;
+            int type = currentIndex / 4 + 1;
+
             int count = 0;
             for (int i = 0; i < datas.size(); i++) {
                 DungeonData d = datas.get(i);
-                if (d.type == currentIndex + 1) {
+                if (d.type == type && d.belong == belong) {
                     if (count == 0)
                         start = i;
                     count++;

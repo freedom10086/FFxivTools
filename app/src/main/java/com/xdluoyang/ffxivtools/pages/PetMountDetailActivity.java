@@ -10,7 +10,7 @@ import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.PetMountData;
 
-public class PetMountDetailActivity extends ActivityBase {
+public class PetMountDetailActivity extends BaseActivity {
 
     public static final String KEY_PET = "key_pet";
 
@@ -36,7 +36,7 @@ public class PetMountDetailActivity extends ActivityBase {
         description = findViewById(R.id.des);
 
         Picasso.get()
-                .load("http://tools.ffxiv.cn/dajipai/tupian/chongwuzuoqi/" + p.bigId + ".png")
+                .load("https://tools.ffxiv.cn/lajipai/image/chongwuzuoqi/" + p.bigId + ".png")
                 .into(image);
         name.setText(p.name);
         fly.setVisibility(p.fly ? View.VISIBLE : View.INVISIBLE);

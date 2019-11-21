@@ -34,8 +34,7 @@ public class ExploreData implements Parcelable {
         this.id = id;
         this.num = num;
         this.name = name;
-        this.version = Objects.equals(version, "新生篇") ?
-                0 : (Objects.equals(version, "苍天篇") ? 1 : 2);
+        this.version = getVersionCode(version);
         this.map = map;
         this.x = x;
         this.y = y;
@@ -68,6 +67,18 @@ public class ExploreData implements Parcelable {
         comment = in.readString();
         image1 = in.readString();
         image2 = in.readString();
+    }
+
+    private Integer getVersionCode(String versionName) {
+        if ("新生篇".equals(versionName)) {
+            return 0;
+        } else if ("苍天篇".equals(versionName)) {
+            return 1;
+        } else if ("红莲篇".equals(versionName)) {
+            return 2;
+        } else {
+            return 3;
+        }
     }
 
     public static final Creator<ExploreData> CREATOR = new Creator<ExploreData>() {

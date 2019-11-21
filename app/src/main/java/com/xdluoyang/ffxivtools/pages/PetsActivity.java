@@ -3,14 +3,15 @@ package com.xdluoyang.ffxivtools.pages;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
@@ -22,7 +23,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -31,12 +31,8 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class PetsMountsActivity extends ActivityBase {
+public class PetsActivity extends BaseActivity {
 
-    public static final int TYPE_PETS = 0;
-    public static final int TYPE_MOUNTS = 1;
-
-    private int type;
     private MyAdapter adapter;
     private List<PetMountData> datas = new ArrayList<>(300);
 
@@ -45,8 +41,7 @@ public class PetsMountsActivity extends ActivityBase {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pets);
 
-        type = getIntent().getIntExtra(PageTools.KEY_INDEX, TYPE_PETS);
-        setToolBar(true, type == TYPE_PETS ? "宠物一览" : "坐骑一览");
+        setToolBar(true, "宠物一览");
 
         int width = (int) Util.getScreenWidthDP(this);
         RecyclerView recyclerView = findViewById(R.id.list_view);
@@ -62,9 +57,7 @@ public class PetsMountsActivity extends ActivityBase {
         final Handler mainHandler = new Handler(getMainLooper());
         OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url(type == TYPE_PETS
-                        ? "http://tools.ffxiv.cn/dajipai/csv/pets.csv"
-                        : "http://tools.ffxiv.cn/dajipai/csv/mounts.csv")
+                .url("https://tools.ffxiv.cn/lajipai/csv/pets.csv")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -77,27 +70,24 @@ public class PetsMountsActivity extends ActivityBase {
             public void onResponse(Call call, Response response) throws IOException {
                 if (response.isSuccessful()) {
                     BufferedReader reader = new BufferedReader(new InputStreamReader(response.body().byteStream()));
-                    String preLine = "";
+                    StringBuilder preLine = new StringBuilder();
                     String line = "";
 
                     List<String> lines = new ArrayList<>(300);
                     while ((line = reader.readLine()) != null) {
                         if (!line.matches("^([0-9]+\\.tex).*$")) {
-                            preLine += line;
+                            preLine.append(line);
                             continue;
                         } else {
-                            lines.add(preLine);
-                            preLine = line;
+                            lines.add(preLine.toString());
+                            preLine = new StringBuilder(line);
                         }
                     }
 
-                    if (!TextUtils.isEmpty(preLine))
-                        lines.add(preLine);
+                    if (!TextUtils.isEmpty(preLine.toString()))
+                        lines.add(preLine.toString());
 
-                    int tokenCount = 7;
-                    if (type == TYPE_MOUNTS) {
-                        tokenCount = 8;
-                    }
+                    int tokenCount = 8;
 
                     String[] tokens = new String[tokenCount];
                     boolean isIn = false;
@@ -149,14 +139,7 @@ public class PetsMountsActivity extends ActivityBase {
                             tokens[k + index + 1] = "";
                         }
 
-                        if (type == TYPE_PETS) {
-                            datas.add(new PetMountData(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[6]));
-                        } else {
-                            //大图编码,小图编码,版本,飞行,名称,中国区获得方法,国际服获得方法,说明
-                            PetMountData d = new PetMountData(tokens[0], tokens[1], tokens[2], tokens[4], tokens[5], tokens[7]);
-                            d.fly = Objects.equals(tokens[3], "1");
-                            datas.add(d);
-                        }
+                        datas.add(new PetMountData(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4], tokens[6]));
                     }
 
 
@@ -183,7 +166,7 @@ public class PetsMountsActivity extends ActivityBase {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(position);
-            Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/chongwuzuoqi-ui/"
+            Picasso.get().load("https://tools.ffxiv.cn/lajipai//image/chongwuzuoqi-ui/"
                     + datas.get(position).id + ".png")
                     .into(holder.icon);
         }
@@ -204,7 +187,7 @@ public class PetsMountsActivity extends ActivityBase {
 
             itemView.setOnClickListener(view -> {
                 int position = (int) itemView.getTag();
-                Intent i = new Intent(PetsMountsActivity.this, PetMountDetailActivity.class);
+                Intent i = new Intent(PetsActivity.this, PetMountDetailActivity.class);
                 i.putExtra(PetMountDetailActivity.KEY_PET, datas.get(position));
                 startActivity(i);
             });

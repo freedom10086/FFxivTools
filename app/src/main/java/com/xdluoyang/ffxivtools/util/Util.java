@@ -5,9 +5,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Display;
-
-import java.util.List;
 
 
 public class Util {

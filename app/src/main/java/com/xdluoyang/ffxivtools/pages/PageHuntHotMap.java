@@ -1,11 +1,9 @@
 package com.xdluoyang.ffxivtools.pages;
 
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +18,6 @@ import com.xdluoyang.ffxivtools.widget.HotMapView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -31,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class PageHuntHotMap extends ActivityBase {
+public class PageHuntHotMap extends BaseActivity {
 
     private List<MapItem> datas = new ArrayList<>();
     private Map<String, List<MapItem>> cache = new HashMap<>();

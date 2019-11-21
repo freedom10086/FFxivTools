@@ -2,9 +2,9 @@ package com.xdluoyang.ffxivtools.pages;
 
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,12 +30,12 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class MusicActivity extends ActivityBase {
+public class MusicActivity extends BaseActivity {
 
     private int start;
     private List<MusicData> datas = new ArrayList<>();
     private int currentIndex = 1, currentSelectMusicPos = -1;
-    private final String[] names = new String[]{"区域场景", "迷宫挑战", "讨伐歼灭", "大型任务", "其他", "季节活动"};
+    private final String[] names = new String[]{"区域场景", "迷宫挑战", "讨伐歼灭", "大型任务", "其他", "季节活动", "商城购买"};
     private TextView nameLabel, methodLabel, method;
     private MyAdapter myAdapter;
     private View playBtn;
@@ -81,6 +81,9 @@ public class MusicActivity extends ActivityBase {
                 case R.id.btn6:
                     currentIndex = 6;
                     break;
+                case R.id.btn7:
+                    currentIndex = 7;
+                    break;
                 default:
                     currentIndex = 1;
                     break;
@@ -113,7 +116,7 @@ public class MusicActivity extends ActivityBase {
         final Handler mainHandler = new Handler(getMainLooper());
         OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://tools.ffxiv.cn/dajipai/csv/music.csv")
+                .url("https://tools.ffxiv.cn/lajipai/csv/music.csv")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -133,22 +136,21 @@ public class MusicActivity extends ActivityBase {
                     //编号,音乐,位置,坐标,NPC,其他,备注,类型,BGM
                     while ((line = reader.readLine()) != null) {
                         //System.out.println(line);
-                        String[] tokens = Util.readCsv(9, line);
+                        String[] tokens = Util.readCsv(7, line);
 
-                        if (!TextUtils.isEmpty(tokens[0]) && TextUtils.isDigitsOnly(tokens[0])) {
-                            num = Integer.parseInt(tokens[0]);
+                        if (!TextUtils.isEmpty(tokens[3]) && TextUtils.isDigitsOnly(tokens[3])) {
+                            num = Integer.parseInt(tokens[3]);
                         } else {
                             num = 0;
                         }
 
-                        if (!TextUtils.isEmpty(tokens[7]) && TextUtils.isDigitsOnly(tokens[7])) {
-                            type = Integer.parseInt(tokens[7]);
+                        if (!TextUtils.isEmpty(tokens[4]) && TextUtils.isDigitsOnly(tokens[4])) {
+                            type = Integer.parseInt(tokens[4]);
                         } else {
-                            type = 6;
+                            type = 4; // others
                         }
 
-                        datas.add(new MusicData(num, tokens[1], tokens[2], tokens[3], tokens[4],
-                                tokens[5], tokens[6], type, tokens[8]));
+                        datas.add(new MusicData(num, tokens[1], tokens[2], type, tokens[5], tokens[6]));
                     }
 
                     if (datas.size() > 1) {
@@ -248,23 +250,8 @@ public class MusicActivity extends ActivityBase {
                 method.setVisibility(View.VISIBLE);
                 playBtn.setVisibility(View.VISIBLE);
 
-                String methodS = String.format("%03d", d.num) + " - " + d.name + "\n";
-                String pos = (TextUtils.isEmpty(d.pos) ? "" : d.pos) + (TextUtils.isEmpty(d.posXy) ? "" : (":" + d.posXy));
-                methodS += pos;
-
+                String methodS = String.format("%03d", d.num) + " - " + d.name + "\n" + d.method;
                 playBtn.setTag(position);
-
-                //编号,音乐,位置,坐标,NPC,其他,备注,类型,BGM
-                if (!TextUtils.isEmpty(pos)) {
-                    methodS += "\n";
-                }
-
-                if (TextUtils.isEmpty(d.npc)) {
-                    methodS += d.others + (!TextUtils.isEmpty(d.comment) ? "(" + d.comment + ")" : "");
-                } else {
-                    methodS += "NPC:" + d.npc + "购买（" + d.others + "）";
-                }
-
                 method.setText(methodS);
             });
         }

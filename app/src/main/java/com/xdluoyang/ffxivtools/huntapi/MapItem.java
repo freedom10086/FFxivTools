@@ -4,8 +4,6 @@ package com.xdluoyang.ffxivtools.huntapi;
 import java.sql.Date;
 
 public class MapItem {
-
-
     public long ANMID;
     public String Name;
     public int MapID;

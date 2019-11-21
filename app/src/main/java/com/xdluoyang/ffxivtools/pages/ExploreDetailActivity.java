@@ -1,6 +1,5 @@
 package com.xdluoyang.ffxivtools.pages;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -10,9 +9,8 @@ import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.ExploreData;
-import com.xdluoyang.ffxivtools.model.PetMountData;
 
-public class ExploreDetailActivity extends ActivityBase {
+public class ExploreDetailActivity extends BaseActivity {
 
     public static final String KEY_EXPLORE = "key_explore";
     private ImageView imageView, imageView1, imageView2, weatherImage, actionImage;
@@ -44,12 +42,12 @@ public class ExploreDetailActivity extends ActivityBase {
         action = findViewById(R.id.action);
         actionCode = findViewById(R.id.action_code);
 
-        Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.bigId + ".png").into(imageView);
+        Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/explore/" + e.bigId + ".png").into(imageView);
         if (TextUtils.isEmpty(e.image1)) {
             imageView1.setVisibility(View.GONE);
         } else {
             imageView1.setVisibility(View.VISIBLE);
-            String src = "http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image1 + ".jpg";
+            String src = "https://tools.ffxiv.cn/lajipai/image/explore/" + e.image1 + ".jpg";
             Picasso.get().load(src).into(imageView1);
             imageView1.setOnClickListener(view -> ImageViewerActivity.openWithAnimation(ExploreDetailActivity.this, e.num + " " + e.name, src, imageView1));
         }
@@ -58,8 +56,8 @@ public class ExploreDetailActivity extends ActivityBase {
             imageView2.setVisibility(View.GONE);
         } else {
             imageView2.setVisibility(View.VISIBLE);
-            String src = "http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image2 + ".jpg";
-            Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + e.image2 + ".jpg").into(imageView2);
+            String src = "https://tools.ffxiv.cn/lajipai/image/explore/" + e.image2 + ".jpg";
+            Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/explore/" + e.image2 + ".jpg").into(imageView2);
             imageView2.setOnClickListener(view -> ImageViewerActivity.openWithAnimation(ExploreDetailActivity.this, e.num + " " + e.name, src, imageView2));
         }
 
@@ -83,10 +81,10 @@ public class ExploreDetailActivity extends ActivityBase {
             weatherImage.setVisibility(View.VISIBLE);
 
             weather.setText(e.wether);
-            Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/weather/" + e.wetherImage + ".png").into(weatherImage);
+            Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/weather/" + e.wetherImage + ".png").into(weatherImage);
         }
 
-        Picasso.get().load("http://tools.ffxiv.cn/dajipai/tupian/action/" + e.actionImage + ".png").into(actionImage);
+        Picasso.get().load("https://tools.ffxiv.cn/lajipai/image/action/" + e.actionImage + ".png").into(actionImage);
 
         action.setText(e.action);
         actionCode.setText(e.actionCode);

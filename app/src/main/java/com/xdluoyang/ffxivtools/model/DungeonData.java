@@ -3,34 +3,34 @@ package com.xdluoyang.ffxivtools.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-//编码,顺序,所属,副本名称,任务,位置,坐标,NPC,装等限制,类型,是否主线
+//编码,顺序,副本名称,任务,位置,NPC,地图map,装等限制,等级,所属,类型
 public class DungeonData implements Parcelable {
     public String id;
     public int sort;
     public String name;
-
     public String renwu;
     public String pos;
-    public String posXy;
     public String npc;
-
+    public String mapPos; // id=20&x=12.0&y=14.3
     public String zhuandeng;
+    public String level;
+    public int belong;
     public int type; //1-10
-    public boolean isMainLine;
 
     public DungeonData(String id, int sort, String name,
-                       String renwu, String pos, String posXy, String npc,
-                       String zhuandeng, int type, boolean isMainLine) {
+                       String renwu, String pos, String mapPos, String npc,
+                       String zhuandeng, String level, int belong, int type) {
         this.id = id;
         this.sort = sort;
         this.name = name;
         this.renwu = renwu;
         this.pos = pos;
-        this.posXy = posXy;
+        this.mapPos = mapPos;
         this.npc = npc;
         this.zhuandeng = zhuandeng;
+        this.level = level;
+        this.belong = belong;
         this.type = type;
-        this.isMainLine = isMainLine;
     }
 
     private DungeonData(Parcel in) {
@@ -39,11 +39,12 @@ public class DungeonData implements Parcelable {
         name = in.readString();
         renwu = in.readString();
         pos = in.readString();
-        posXy = in.readString();
+        mapPos = in.readString();
         npc = in.readString();
         zhuandeng = in.readString();
+        level = in.readString();
+        belong = in.readInt();
         type = in.readInt();
-        isMainLine = in.readInt() != 0;
     }
 
     public static final Creator<DungeonData> CREATOR = new Creator<DungeonData>() {
@@ -70,10 +71,11 @@ public class DungeonData implements Parcelable {
         parcel.writeString(name);
         parcel.writeString(renwu);
         parcel.writeString(pos);
-        parcel.writeString(posXy);
+        parcel.writeString(mapPos);
         parcel.writeString(npc);
         parcel.writeString(zhuandeng);
+        parcel.writeString(level);
+        parcel.writeInt(belong);
         parcel.writeInt(type);
-        parcel.writeInt(isMainLine ? 1 : 0);
     }
 }

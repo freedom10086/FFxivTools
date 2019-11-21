@@ -3,9 +3,12 @@ package com.xdluoyang.ffxivtools.pages;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.design.widget.TabLayout;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
+
+import com.google.android.material.tabs.TabLayout;
+
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +31,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-public class ExploreActivity extends ActivityBase {
+public class ExploreActivity extends BaseActivity {
 
     private MyAdapter adapter;
     private List<ExploreData> datas = new ArrayList<>();
@@ -76,7 +79,7 @@ public class ExploreActivity extends ActivityBase {
         final Handler mainHandler = new Handler(getMainLooper());
         OkHttpClient client = new OkHttpClient();
         final Request request = new Request.Builder()
-                .url("http://tools.ffxiv.cn/dajipai/csv/explore.csv")
+                .url("https://tools.ffxiv.cn/lajipai/csv/explore.csv")
                 .build();
 
         client.newCall(request).enqueue(new Callback() {
@@ -122,9 +125,8 @@ public class ExploreActivity extends ActivityBase {
         @Override
         public void onBindViewHolder(MyViewHolder holder, int position) {
             holder.itemView.setTag(start + position);
-
             Picasso.get()
-                    .load("http://tools.ffxiv.cn/dajipai/tupian/explore/" + datas.get(start + position).id + ".png")
+                    .load("https://tools.ffxiv.cn/lajipai/image/explore/" + datas.get(start + position).id + ".png")
                     .into(holder.icon);
         }
 

@@ -3,9 +3,15 @@
     <item
         android:width="34dp"
         android:height="34dp"
-        android:drawable="@mipmap/icon_dunge_other" />
+        android:drawable="@mipmap/icon_dunge_big" />
     <item
         android:width="34dp"
         android:height="34dp"
         android:drawable="@mipmap/ic_dunge_border" />
+    <item
+        android:width="13dp"
+        android:height="13dp"
+        android:drawable="@mipmap/ic_num_4"
+        android:left="18dp"
+        android:top="18dp" />
 </layer-list>

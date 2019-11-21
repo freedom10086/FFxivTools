@@ -3,12 +3,11 @@ package com.xdluoyang.ffxivtools.pages;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.CollapsingToolbarLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.Toolbar;
+import com.google.android.material.appbar.CollapsingToolbarLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.app.ActivityOptionsCompat;
+import androidx.core.view.ViewCompat;
+import androidx.appcompat.widget.Toolbar;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,7 +15,7 @@ import com.squareup.picasso.Picasso;
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.model.DungeonData;
 
-public class DungeonDetailActivity extends ActivityBase {
+public class DungeonDetailActivity extends BaseActivity {
 
     public static final String KEY_DUNGEON = "key_dungeon";
     private static final String NAME_IMG = "image";
@@ -44,7 +43,7 @@ public class DungeonDetailActivity extends ActivityBase {
 
         image = findViewById(R.id.image);
         Picasso.get()
-                .load("http://tools.ffxiv.cn/dajipai/tupian/dungeons/" + d.id + ".png")
+                .load("https://tools.ffxiv.cn/lajipai/image/dungeons/" + d.id + ".png")
                 .into(image);
         ViewCompat.setTransitionName(image, NAME_IMG);
         toolbarLayout = findViewById(R.id.toolbar_layout);
@@ -57,14 +56,11 @@ public class DungeonDetailActivity extends ActivityBase {
         TextView method = findViewById(R.id.method);
         ////编码,顺序,所属,副本名称,任务,位置,坐标,NPC,装等限制,类型,是否主线
         String methods = "";
-        if (d.isMainLine) {
-            methods = "主线任务开启";
-        } else {
-            methods += "任务：" + d.renwu + "\n";
-            methods += "位置：" + d.pos + "\n";
-            methods += "坐标：" + d.posXy + "\n";
-            methods += "NPC：" + d.npc;
-        }
+        methods += "任务：" + d.renwu + "\n";
+        methods += "位置：" + d.pos + "\n";
+        methods += "NPC：" + d.npc + "\n";
+        methods += "等级：" + d.level + "\n";
+        methods += "装等：" + d.zhuandeng + "\n";
 
         method.setText(methods);
     }
