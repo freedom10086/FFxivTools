@@ -22,8 +22,8 @@ public class PageTools extends LazyPage {
     public static final String KEY_INDEX = "key_index";
 
     public static final int[] icons = new int[]{
-            R.mipmap.ic_pets, R.mipmap.ic_mounts, R.mipmap.ic_explore, R.mipmap.ic_music, R.mipmap.ic_dungeons, R.mipmap.ic_aether,
-            R.mipmap.ic_jobtask, R.mipmap.ic_hunt, R.mipmap.ic_hunt, R.mipmap.ic_dig,
+            R.mipmap.ic_pets, R.mipmap.ic_mounts, R.mipmap.ic_explore, R.mipmap.ic_music, R.mipmap.ic_dungeons,
+            R.mipmap.ic_aether, R.mipmap.ic_jobtask, R.mipmap.ic_hunt, R.mipmap.ic_hunt, R.mipmap.ic_dig,
             R.mipmap.ic_blue_magic};
 
     public static final String[] titles = new String[]{
@@ -33,7 +33,7 @@ public class PageTools extends LazyPage {
 
     public static final Class<?>[] cls = new Class<?>[]{
             PetsActivity.class, MountsActivity.class, ExploreActivity.class, MusicActivity.class, DungeonsActivity.class,
-            null, null, null, PageHuntHotMap.class, TestActivity.class,
+            WindActivity.class, null, null, PageHuntHotMap.class, TestActivity.class,
             BlueMagicActivity.class};
 
     @Nullable

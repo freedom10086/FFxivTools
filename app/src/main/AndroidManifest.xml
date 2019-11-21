@@ -31,15 +31,14 @@
         <activity android:name=".pages.ImageViewerActivity" />
         <activity android:name=".pages.ExploreActivity" />
         <activity android:name=".pages.ExploreDetailActivity" />
-        <activity
-            android:name=".pages.MusicActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".pages.MusicActivity" />
         <activity android:name=".pages.DungeonsActivity" />
         <activity
             android:name=".pages.DungeonDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pages.BlueMagicActivity" />
         <activity android:name=".pages.BlueMagicDetailActivity" />
+        <activity android:name=".pages.WindActivity"/>
     </application>
 
 </manifest>
