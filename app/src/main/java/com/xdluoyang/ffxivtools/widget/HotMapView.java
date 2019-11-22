@@ -56,7 +56,10 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
     private boolean isCheckLeftAndRight = true;
 
     private float stepX = 0, stepY = 0;
+
     private List<HuntItem> data;
+    private int threshold = 0;
+
     private Paint rectPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public HotMapView(Context context) {
@@ -95,28 +98,35 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
     }
 
     public void setData(List<HuntItem> data) {
+        setData(data, 0);
+    }
+
+    public void setData(List<HuntItem> data, int threshold) {
         this.data = data;
+        this.threshold = threshold;
+
         invalidate();
+    }
+
+    public void setThreshold(int threshold) {
+        if (this.threshold != threshold) {
+            this.threshold = threshold;
+            invalidate();
+        }
     }
 
     @Override
     protected void onDraw(Canvas canvas) {
         //super.onDraw(canvas);
-
         Drawable d = getDrawable();
         if (d != null) {
             canvas.save();
-
             int width = d.getIntrinsicWidth();
             int height = d.getIntrinsicHeight();
 
             canvas.setMatrix(imageMatrix);
-
             d.draw(canvas);
-
             //super.onDraw(canvas);
-
-
             if (stepX == 0) {
                 stepX = (float) (width * 1.0 / 42);
                 stepY = (float) (height * 1.0 / 42);
@@ -136,14 +146,15 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
                         float x = (item.X - 0.5f) * stepX;
                         float y = (item.Y - 0.5f) * stepY;
 
-                        int alpha = (int) (item.Counts * 1.0f / max * 255 * 0.85); //* 0.9 不让最大值不透明
-                        if (alpha < 26) alpha = 26;
-                        rectPaint.setAlpha(alpha);
+                        if (item.Counts > threshold) {
+                            int alpha = (int) (item.Counts * 1.0f / max * 255 * 0.9); //* 0.9 不让最大值不透明
+                            if (alpha < 26) alpha = 26;
+                            rectPaint.setAlpha(alpha);
 
-                        canvas.drawRect(x - 0.5f * stepX, y - 0.5f * stepY, x + 0.5f * stepX, y + 0.5f * stepY, rectPaint);
+                            canvas.drawRect(x - 0.5f * stepX, y - 0.5f * stepY, x + 0.5f * stepX, y + 0.5f * stepY, rectPaint);
+                        }
                     }
             }
-
             canvas.restore();
         }
     }
@@ -254,7 +265,7 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
         // 如果宽或高大于屏幕，则控制范围
         if (rect.width() >= getWidth()) {
             if (rect.left > left) {
-                deltaX = left-rect.left;
+                deltaX = left - rect.left;
             }
             if (rect.right < right) {
                 deltaX = right - rect.right;
@@ -263,7 +274,7 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
 
         if (rect.height() >= getHeight()) {
             if (rect.top > top) {
-                deltaY =top -rect.top;
+                deltaY = top - rect.top;
             }
             if (rect.bottom < bottom) {
                 deltaY = bottom - rect.bottom;
@@ -463,11 +474,9 @@ public class HotMapView extends ImageView implements ScaleGestureDetector.OnScal
         //// 图片移动至屏幕中心
 
         imageMatrix.postTranslate((width - dw) / 2, (height - dh) / 2);
-        imageMatrix.postScale(initScale, initScale, width / 2,height / 2);
+        imageMatrix.postScale(initScale, initScale, width / 2, height / 2);
         invalidate();
     }
-
-
 
     /**
      * 是否是推动行为

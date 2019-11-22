@@ -1,13 +1,15 @@
 package com.xdluoyang.ffxivtools.pages;
 
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.xdluoyang.ffxivtools.R;
@@ -17,10 +19,9 @@ import com.xdluoyang.ffxivtools.huntapi.MapItem;
 import com.xdluoyang.ffxivtools.widget.HotMapView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 
 import retrofit2.Call;
@@ -31,9 +32,9 @@ import retrofit2.Response;
 public class PageHuntHotMap extends BaseActivity {
 
     private List<MapItem> datas = new ArrayList<>();
-    private Map<String, List<MapItem>> cache = new HashMap<>();
     private MyAdapter adapter;
     private HotMapView mapView;
+    private SeekBar seekBar;
 
     private Location[] loc2 = new Location[]{
             new Location(134, "中拉诺西亚", "MiddleLaNoscea"),
@@ -95,11 +96,43 @@ public class PageHuntHotMap extends BaseActivity {
         recyclerView.setLayoutManager(manager);
 
         mapView = findViewById(R.id.hot_map_view);
+        seekBar = findViewById(R.id.filter_seek);
+
+        seekBar.setVisibility(View.GONE);
+        seekBar.setEnabled(false);
+
+        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                if (currentSpecs != null) {
+                    int min = currentSpecs[0];
+                    int max = currentSpecs[1];
+
+                    mapView.setThreshold((int) (progress * 1.0f / 100 * (max - min)));
+                }
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
 
         loadData();
     }
 
+
     private void loadData() {
+        seekBar.setEnabled(false);
+        seekBar.setVisibility(View.GONE);
+        seekBar.setProgress(0);
+
         Client.Instance().getHuntMapList().enqueue(new Callback<List<MapItem>>() {
             @Override
             public void onResponse(Call<List<MapItem>> call, retrofit2.Response<List<MapItem>> response) {
@@ -118,9 +151,9 @@ public class PageHuntHotMap extends BaseActivity {
                         }
                     });
 
-
                     adapter.notifyDataSetChanged();
                 }
+
             }
 
             @Override
@@ -130,12 +163,28 @@ public class PageHuntHotMap extends BaseActivity {
         });
     }
 
+    private int[] currentSpecs = null;
+
     private void loadDetail(String name) {
         Client.Instance().getHuntDetail(name).enqueue(new Callback<List<HuntItem>>() {
             @Override
             public void onResponse(Call<List<HuntItem>> call, Response<List<HuntItem>> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    mapView.setData(response.body());
+
+                    List<HuntItem> data = response.body();
+
+                    // min max avg
+                    int[] spec = getMapDataSpec(data);
+                    currentSpecs = spec;
+
+                    // default progress is 0.4 * avg
+                    float times = 0.4f;
+                    int progress = (spec[0] == spec[1]) ? 100 : (int) ((spec[2] - spec[0]) * 100 / (spec[1] - spec[0]) * times);
+                    seekBar.setProgress(progress);
+                    seekBar.setVisibility(View.VISIBLE);
+                    seekBar.setEnabled(true);
+
+                    mapView.setData(response.body(), (int) (spec[2] * times));
                 }
             }
 
@@ -146,6 +195,25 @@ public class PageHuntHotMap extends BaseActivity {
         });
     }
 
+    public int[] getMapDataSpec(List<HuntItem> data) {
+        int min = Integer.MAX_VALUE;
+        int max = 0;
+        int sum = 0;
+
+        for (HuntItem item : data) {
+            if (item.Counts < min) {
+                min = item.Counts;
+            }
+
+            if (item.Counts > max) {
+                max = item.Counts;
+            }
+
+            sum += item.Counts;
+        }
+        int avg = sum / data.size();
+        return new int[]{min, max, avg};
+    }
 
     private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
@@ -188,7 +256,7 @@ public class PageHuntHotMap extends BaseActivity {
                 mapView.setData(null);
                 if (mapName != null)
                     Glide.with(mapView)
-                            .load("https://hunt.ffxiv.xin/img/map/500/"+mapName+".png")
+                            .load("https://hunt.ffxiv.xin/img/map/500/" + mapName + ".png")
                             .into(mapView);
             });
         }
@@ -215,6 +283,4 @@ public class PageHuntHotMap extends BaseActivity {
 
         return null;
     }
-
-
 }

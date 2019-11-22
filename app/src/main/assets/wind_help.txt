@@ -1,0 +1,20 @@
+<ul style="width:420px;height:480px;top: 0px;"><img alt="" src="image/aether/nothing/shuoming.jpg" style="width: 193px; height: 59px;opacity: 1;"><br>
+<p class="explain-main">风脉小图对应1-10，从左到右，左上为1-5，左下为6-10</p>
+<p class="explain-main">若无特地标注地名，只显示坐标的情况，则为当前地图的任务</p>
+<p class="explain-main"><span style="color:#ff0000;">Q：什么是风脉？</span></p>
+<p class="explain-main">A：风脉是飞行开启的必要条件之一</p>
+<p class="explain-main">10个分布在该地图各个角落的[风脉泉]</p>
+<p class="explain-main">4个完成该地图指定的支线任务送的[风脉泉]</p>
+<p class="explain-main">1个指定主线任务送的[风脉泉]</p>
+<p class="explain-main">完成以上累积15个[风脉泉]就可以飞该张图了</p>
+<p class="explain-main">3.0一共6张地图、4.0一共6张地图、5.0一共6张图</p>
+<p class="explain-main"><span style="color:#ff0000;">Q：怎么飞? </span></p>
+<p class="explain-main">完成15个[风脉泉]后，要确保该坐骑是飞行坐骑<img alt="" src="image/logo/飞行.png" style="width: 20px; height: 20px;opacity: 1;"></p>
+<p class="explain-main">而陆行鸟系列坐骑，需要去完成「我心飞翔」才可飞行</p>
+<p class="explain-main">「我心飞翔」伊修加德基础层 圣大鸟房 阿尔努兰(X:7 Y:11)</p>
+<p class="explain-main"><span style="color:#ff0000;">Q：如何查看风脉</span></p>
+<p class="explain-main">A：按i打开背包，在任务道具背包里，找到「风脉仪」，使用它可以查询风脉的位置</p>
+<p class="explain-main">或按P，快捷指令 下的 地图&amp;移动，点开风脉泉，可以查看你现在开启的风脉情况</p>
+<p class="explain-main"><span style="color:#ff0000;">Q：如果不小心把 「风脉仪」丢了</span></p>
+<p class="explain-main">A：在神拳痕（X：14.3 ，Y：9.6）找NPC加乌弗里德或者伊修加德基础层（X：13 ，Y：11.9）找NPC吉布里隆再次领取。</p>
+</ul>
