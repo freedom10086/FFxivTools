@@ -39,6 +39,7 @@
         <activity android:name=".pages.BlueMagicActivity" />
         <activity android:name=".pages.BlueMagicDetailActivity" />
         <activity android:name=".pages.WindActivity"/>
+        <activity android:name=".pages.WindDetailActivity" />
     </application>
 
 </manifest>

@@ -11,9 +11,10 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewTreeObserver;
-import android.widget.ImageView;
 
-public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnScaleGestureListener,
+import androidx.appcompat.widget.AppCompatImageView;
+
+public class ZoomImageView extends AppCompatImageView implements ScaleGestureDetector.OnScaleGestureListener,
         View.OnTouchListener, ViewTreeObserver.OnGlobalLayoutListener {
 
     private static final String TAG = ZoomImageView.class.getSimpleName();
@@ -34,7 +35,7 @@ public class ZoomImageView extends ImageView implements ScaleGestureDetector.OnS
     /**
      * 缩放的手势检测
      */
-    private ScaleGestureDetector mScaleGestureDetector = null;
+    private ScaleGestureDetector mScaleGestureDetector;
     private final Matrix mScaleMatrix = new Matrix();
 
     /**

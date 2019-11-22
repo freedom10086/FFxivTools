@@ -4,19 +4,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SnapHelper;
 
 import com.bumptech.glide.Glide;
+import com.google.android.material.snackbar.Snackbar;
 import com.xdluoyang.ffxivtools.R;
-import com.xdluoyang.ffxivtools.model.BlueMagicData;
 import com.xdluoyang.ffxivtools.model.WindData;
 import com.xdluoyang.ffxivtools.util.Util;
 
@@ -50,7 +51,16 @@ public class WindActivity extends BaseActivity {
         RecyclerView recyclerView = findViewById(R.id.list_view);
         adapter = new MyAdapter();
         recyclerView.setAdapter(adapter);
-        RecyclerView.LayoutManager manager = new GridLayoutManager(this, width / 180);
+        GridLayoutManager manager = new GridLayoutManager(this, width / 180);
+        manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+            @Override
+            public int getSpanSize(int position) {
+                if (position % 7 == 0) {
+                    return width / 180;
+                }
+                return 1;
+            }
+        });
         recyclerView.setLayoutManager(manager);
 
         loadList();
@@ -93,27 +103,50 @@ public class WindActivity extends BaseActivity {
     }
 
 
-    private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
+    private class MyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+        private final Integer TYPE_TITLE = 0;
+
+        private final Integer TYPE_CONTENT = 1;
 
         @Override
-        public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-            View v = LayoutInflater.from(parent.getContext())
-                    .inflate(R.layout.row_windows_item, parent, false);
-
-            return new MyViewHolder(v);
+        public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+            if (viewType == TYPE_CONTENT) {
+                View v = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.row_winds_item, parent, false);
+                return new MyViewHolder(v);
+            } else {
+                View v = LayoutInflater.from(parent.getContext())
+                        .inflate(R.layout.row_section_title_item, parent, false);
+                return new MyTitleViewHolder(v);
+            }
         }
 
         @Override
-        public void onBindViewHolder(MyViewHolder holder, int position) {
-            holder.itemView.setTag(position);
-            Glide.with(findViewById(R.id.list_view)).load("https://tools.ffxiv.cn/lajipai/image/aether/"
-                    + (position + 1) + ".png")
-                    .into(holder.image);
+        public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+            if (holder instanceof MyViewHolder) {
+                int pos = position - (position / 7) - 1;
+                holder.itemView.setTag(pos);
+                Glide.with(findViewById(R.id.list_view)).load("https://tools.ffxiv.cn/lajipai/image/aether/"
+                        + (pos + 1) + ".png")
+                        .into(((MyViewHolder) holder).image);
+            } else {
+                String title = (position / 7 + 3) + ".0区域";
+                ((MyTitleViewHolder) holder).title.setText(title);
+            }
+        }
+
+        @Override
+        public int getItemViewType(int position) {
+            if (position % 7 == 0) {
+                return TYPE_TITLE;
+            }
+            return TYPE_CONTENT;
         }
 
         @Override
         public int getItemCount() {
-            return datas.size();
+            return datas.size() + 3;
         }
     }
 
@@ -127,10 +160,25 @@ public class WindActivity extends BaseActivity {
 
             itemView.setOnClickListener(view -> {
                 int position = (int) itemView.getTag();
-                Intent i = new Intent(WindActivity.this, BlueMagicDetailActivity.class);
-                i.putExtra(BlueMagicDetailActivity.KEY_MAGIC, datas.get(position));
+                if (TextUtils.isEmpty(datas.get(position).mapId)) {
+                    Snackbar.make(itemView, "该地图风脉全部由主线触发！", 2000).show();
+                    return;
+                }
+                Intent i = new Intent(WindActivity.this, WindDetailActivity.class);
+                i.putExtra(WindDetailActivity.KEY_WIND, datas.get(position));
                 startActivity(i);
             });
+        }
+    }
+
+    private class MyTitleViewHolder extends RecyclerView.ViewHolder {
+
+        final TextView title;
+
+        public MyTitleViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            title = itemView.findViewById(R.id.section_title);
         }
     }
 }
