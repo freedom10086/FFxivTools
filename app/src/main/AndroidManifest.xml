@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".pages.WeatherActivity"></activity>
         <activity
             android:name=".Main2Activity"
             android:label="@string/app_name">
@@ -30,16 +31,22 @@
         <activity android:name=".pages.PetMountDetailActivity" />
         <activity android:name=".pages.ImageViewerActivity" />
         <activity android:name=".pages.ExploreActivity" />
-        <activity android:name=".pages.ExploreDetailActivity" android:parentActivityName=".pages.ExploreActivity"/>
+        <activity
+            android:name=".pages.ExploreDetailActivity"
+            android:parentActivityName=".pages.ExploreActivity" />
         <activity android:name=".pages.MusicActivity" />
         <activity android:name=".pages.DungeonsActivity" />
         <activity
             android:name=".pages.DungeonDetailActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".pages.BlueMagicActivity" />
-        <activity android:name=".pages.BlueMagicDetailActivity" android:parentActivityName=".pages.BlueMagicActivity"/>
-        <activity android:name=".pages.WindActivity"/>
-        <activity android:name=".pages.WindDetailActivity" android:parentActivityName=".pages.WindActivity"/>
+        <activity
+            android:name=".pages.BlueMagicDetailActivity"
+            android:parentActivityName=".pages.BlueMagicActivity" />
+        <activity android:name=".pages.WindActivity" />
+        <activity
+            android:name=".pages.WindDetailActivity"
+            android:parentActivityName=".pages.WindActivity" />
     </application>
 
 </manifest>

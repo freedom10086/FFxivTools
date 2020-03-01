@@ -24,17 +24,17 @@ public class PageTools extends LazyPage {
     public static final int[] icons = new int[]{
             R.mipmap.ic_pets, R.mipmap.ic_mounts, R.mipmap.ic_explore, R.mipmap.ic_music, R.mipmap.ic_dungeons,
             R.mipmap.ic_aether, R.mipmap.ic_jobtask, R.mipmap.ic_hunt, R.mipmap.ic_hunt, R.mipmap.ic_dig,
-            R.mipmap.ic_blue_magic};
+            R.mipmap.ic_blue_magic, R.mipmap.test_grid};
 
     public static final String[] titles = new String[]{
             "宠物一览", "坐骑一览", "探索笔记", "乐谱一览", "副本一览",
             "风脉泉一览", "职业任务一览", "狩猎任务一览", "狩猎热点图", "藏宝图一览",
-            "青魔法书"};
+            "青魔法书", "测试"};
 
     public static final Class<?>[] cls = new Class<?>[]{
             PetsActivity.class, MountsActivity.class, ExploreActivity.class, MusicActivity.class, DungeonsActivity.class,
             WindActivity.class, null, null, PageHuntHotMap.class, TestActivity.class,
-            BlueMagicActivity.class};
+            BlueMagicActivity.class, WeatherActivity.class};
 
     @Nullable
     @Override
