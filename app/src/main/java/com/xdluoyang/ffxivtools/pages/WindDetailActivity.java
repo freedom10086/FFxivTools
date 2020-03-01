@@ -81,17 +81,10 @@ public class WindDetailActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.help:  // TODO
+            case R.id.help:
                 try {
-                    StringBuilder sb = new StringBuilder();
-                    InputStream is = getAssets().open("wind_help.txt");
-                    BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
-                    String str;
-                    while ((str = br.readLine()) != null) {
-                        sb.append(str);
-                    }
-                    br.close();
-                    Log.i("==", sb.toString());
+                    String helpText = Util.readStreamString(getAssets().open("wind_help.txt"));
+                    Log.i("==", helpText);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -147,7 +140,7 @@ public class WindDetailActivity extends BaseActivity {
                 int index = position - 1;
                 int curIndex = 0;
                 String posText = "";
-                for (int start = 10 ; start < 14; start ++) {
+                for (int start = 10; start < 14; start++) {
                     if (!TextUtils.isEmpty(windData.posList.get(start))) {
                         if (curIndex == index) {
                             posText = windData.posList.get(start);

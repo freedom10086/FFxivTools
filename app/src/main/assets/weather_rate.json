@@ -1,0 +1,1459 @@
+{
+  "0": [
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "1": [
+    {
+      "weather": 7,
+      "rate": 5
+    },
+    {
+      "weather": 7,
+      "rate": 20
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 55
+    },
+    {
+      "weather": 1,
+      "rate": 85
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "2": [
+    {
+      "weather": 7,
+      "rate": 5
+    },
+    {
+      "weather": 7,
+      "rate": 20
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 55
+    },
+    {
+      "weather": 1,
+      "rate": 85
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "3": [
+    {
+      "weather": 9,
+      "rate": 5
+    },
+    {
+      "weather": 7,
+      "rate": 20
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 55
+    },
+    {
+      "weather": 1,
+      "rate": 85
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "4": [
+    {
+      "weather": 9,
+      "rate": 5
+    },
+    {
+      "weather": 7,
+      "rate": 20
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 55
+    },
+    {
+      "weather": 1,
+      "rate": 85
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "5": [
+    {
+      "weather": 4,
+      "rate": 5
+    },
+    {
+      "weather": 10,
+      "rate": 10
+    },
+    {
+      "weather": 9,
+      "rate": 25
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "6": [
+    {
+      "weather": 4,
+      "rate": 5
+    },
+    {
+      "weather": 8,
+      "rate": 10
+    },
+    {
+      "weather": 7,
+      "rate": 25
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "7": [
+    {
+      "weather": 1,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 85
+    },
+    {
+      "weather": 4,
+      "rate": 95
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "8": [
+    {
+      "weather": 1,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 85
+    },
+    {
+      "weather": 4,
+      "rate": 95
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "9": [
+    {
+      "weather": 1,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 85
+    },
+    {
+      "weather": 4,
+      "rate": 95
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "10": [
+    {
+      "weather": 11,
+      "rate": 15
+    },
+    {
+      "weather": 1,
+      "rate": 55
+    },
+    {
+      "weather": 2,
+      "rate": 75
+    },
+    {
+      "weather": 3,
+      "rate": 85
+    },
+    {
+      "weather": 4,
+      "rate": 95
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "11": [
+    {
+      "weather": 1,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 70
+    },
+    {
+      "weather": 4,
+      "rate": 80
+    },
+    {
+      "weather": 7,
+      "rate": 85
+    },
+    {
+      "weather": 8,
+      "rate": 100
+    }
+  ],
+  "12": [
+    {
+      "weather": 14,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 60
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 3,
+      "rate": 90
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "13": [
+    {
+      "weather": 1,
+      "rate": 5
+    },
+    {
+      "weather": 2,
+      "rate": 20
+    },
+    {
+      "weather": 3,
+      "rate": 50
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "14": [
+    {
+      "weather": 3,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "15": [
+    {
+      "weather": 3,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "16": [
+    {
+      "weather": 3,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 5,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "17": [
+    {
+      "weather": 3,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 5,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "18": [
+    {
+      "weather": 4,
+      "rate": 5
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 3,
+      "rate": 90
+    },
+    {
+      "weather": 7,
+      "rate": 95
+    },
+    {
+      "weather": 8,
+      "rate": 100
+    }
+  ],
+  "19": [
+    {
+      "weather": 4,
+      "rate": 10
+    },
+    {
+      "weather": 1,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 80
+    },
+    {
+      "weather": 5,
+      "rate": 90
+    },
+    {
+      "weather": 6,
+      "rate": 100
+    }
+  ],
+  "20": [
+    {
+      "weather": 1,
+      "rate": 30
+    },
+    {
+      "weather": 2,
+      "rate": 50
+    },
+    {
+      "weather": 3,
+      "rate": 70
+    },
+    {
+      "weather": 4,
+      "rate": 80
+    },
+    {
+      "weather": 9,
+      "rate": 90
+    },
+    {
+      "weather": 10,
+      "rate": 100
+    }
+  ],
+  "21": [
+    {
+      "weather": 16,
+      "rate": 20
+    },
+    {
+      "weather": 15,
+      "rate": 60
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 1,
+      "rate": 75
+    },
+    {
+      "weather": 3,
+      "rate": 90
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "22": [
+    {
+      "weather": 3,
+      "rate": 15
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 17,
+      "rate": 60
+    },
+    {
+      "weather": 1,
+      "rate": 75
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "23": [
+    {
+      "weather": 29,
+      "rate": 100
+    }
+  ],
+  "24": [
+    {
+      "weather": 1,
+      "rate": 30
+    },
+    {
+      "weather": 2,
+      "rate": 50
+    },
+    {
+      "weather": 3,
+      "rate": 70
+    },
+    {
+      "weather": 4,
+      "rate": 85
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "25": [
+    {
+      "weather": 26,
+      "rate": 100
+    }
+  ],
+  "26": [
+    {
+      "weather": 28,
+      "rate": 100
+    }
+  ],
+  "27": [
+    {
+      "weather": 15,
+      "rate": 100
+    }
+  ],
+  "28": [
+    {
+      "weather": 3,
+      "rate": 100
+    }
+  ],
+  "29": [
+    {
+      "weather": 3,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 10,
+      "rate": 100
+    }
+  ],
+  "30": [
+    {
+      "weather": 27,
+      "rate": 100
+    }
+  ],
+  "31": [
+    {
+      "weather": 25,
+      "rate": 100
+    }
+  ],
+  "32": [
+    {
+      "weather": 3,
+      "rate": 20
+    },
+    {
+      "weather": 1,
+      "rate": 50
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "33": [
+    {
+      "weather": 1,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 85
+    },
+    {
+      "weather": 4,
+      "rate": 95
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "34": [
+    {
+      "weather": 3,
+      "rate": 5
+    },
+    {
+      "weather": 7,
+      "rate": 20
+    },
+    {
+      "weather": 4,
+      "rate": 30
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 55
+    },
+    {
+      "weather": 1,
+      "rate": 85
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "35": [
+    {
+      "weather": 15,
+      "rate": 100
+    }
+  ],
+  "36": [
+    {
+      "weather": 5,
+      "rate": 100
+    }
+  ],
+  "37": [
+    {
+      "weather": 9,
+      "rate": 100
+    }
+  ],
+  "38": [
+    {
+      "weather": 23,
+      "rate": 100
+    }
+  ],
+  "39": [
+    {
+      "weather": 24,
+      "rate": 100
+    }
+  ],
+  "40": [
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "41": [
+    {
+      "weather": 11,
+      "rate": 100
+    }
+  ],
+  "42": [
+    {
+      "weather": 16,
+      "rate": 100
+    }
+  ],
+  "43": [
+    {
+      "weather": 22,
+      "rate": 100
+    }
+  ],
+  "44": [
+    {
+      "weather": 36,
+      "rate": 100
+    }
+  ],
+  "45": [
+    {
+      "weather": 20,
+      "rate": 100
+    }
+  ],
+  "46": [
+    {
+      "weather": 35,
+      "rate": 100
+    }
+  ],
+  "47": [
+    {
+      "weather": 15,
+      "rate": 60
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 1,
+      "rate": 75
+    },
+    {
+      "weather": 3,
+      "rate": 90
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "48": [
+    {
+      "weather": 15,
+      "rate": 60
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 1,
+      "rate": 75
+    },
+    {
+      "weather": 3,
+      "rate": 90
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "49": [
+    {
+      "weather": 16,
+      "rate": 20
+    },
+    {
+      "weather": 15,
+      "rate": 60
+    },
+    {
+      "weather": 2,
+      "rate": 70
+    },
+    {
+      "weather": 1,
+      "rate": 75
+    },
+    {
+      "weather": 3,
+      "rate": 90
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "50": [
+    {
+      "weather": 3,
+      "rate": 10
+    },
+    {
+      "weather": 4,
+      "rate": 20
+    },
+    {
+      "weather": 9,
+      "rate": 30
+    },
+    {
+      "weather": 11,
+      "rate": 40
+    },
+    {
+      "weather": 1,
+      "rate": 70
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "51": [
+    {
+      "weather": 3,
+      "rate": 10
+    },
+    {
+      "weather": 4,
+      "rate": 20
+    },
+    {
+      "weather": 7,
+      "rate": 30
+    },
+    {
+      "weather": 8,
+      "rate": 40
+    },
+    {
+      "weather": 1,
+      "rate": 70
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "52": [
+    {
+      "weather": 3,
+      "rate": 10
+    },
+    {
+      "weather": 6,
+      "rate": 20
+    },
+    {
+      "weather": 50,
+      "rate": 40
+    },
+    {
+      "weather": 1,
+      "rate": 70
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "53": [
+    {
+      "weather": 1,
+      "rate": 30
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 70
+    },
+    {
+      "weather": 4,
+      "rate": 80
+    },
+    {
+      "weather": 5,
+      "rate": 90
+    },
+    {
+      "weather": 49,
+      "rate": 100
+    }
+  ],
+  "54": [
+    {
+      "weather": 2,
+      "rate": 35
+    },
+    {
+      "weather": 3,
+      "rate": 70
+    },
+    {
+      "weather": 9,
+      "rate": 100
+    }
+  ],
+  "55": [
+    {
+      "weather": 3,
+      "rate": 10
+    },
+    {
+      "weather": 4,
+      "rate": 20
+    },
+    {
+      "weather": 7,
+      "rate": 30
+    },
+    {
+      "weather": 8,
+      "rate": 40
+    },
+    {
+      "weather": 1,
+      "rate": 70
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "56": [
+    {
+      "weather": 44,
+      "rate": 100
+    }
+  ],
+  "57": [
+    {
+      "weather": 51,
+      "rate": 100
+    }
+  ],
+  "58": [
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "59": [
+    {
+      "weather": 4,
+      "rate": 15
+    },
+    {
+      "weather": 7,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 100
+    }
+  ],
+  "60": [
+    {
+      "weather": 2,
+      "rate": 40
+    },
+    {
+      "weather": 4,
+      "rate": 75
+    },
+    {
+      "weather": 5,
+      "rate": 95
+    },
+    {
+      "weather": 49,
+      "rate": 99
+    },
+    {
+      "weather": 54,
+      "rate": 100
+    }
+  ],
+  "61": [
+    {
+      "weather": 2,
+      "rate": 40
+    },
+    {
+      "weather": 4,
+      "rate": 60
+    },
+    {
+      "weather": 5,
+      "rate": 95
+    },
+    {
+      "weather": 49,
+      "rate": 99
+    },
+    {
+      "weather": 54,
+      "rate": 100
+    }
+  ],
+  "62": [
+    {
+      "weather": 2,
+      "rate": 40
+    },
+    {
+      "weather": 4,
+      "rate": 65
+    },
+    {
+      "weather": 5,
+      "rate": 90
+    },
+    {
+      "weather": 49,
+      "rate": 98
+    },
+    {
+      "weather": 54,
+      "rate": 100
+    }
+  ],
+  "63": [
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "64": [
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "65": [
+    {
+      "weather": 2,
+      "rate": 50
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "66": [
+    {
+      "weather": 60,
+      "rate": 100
+    }
+  ],
+  "67": [
+    {
+      "weather": 2,
+      "rate": 35
+    },
+    {
+      "weather": 15,
+      "rate": 65
+    },
+    {
+      "weather": 16,
+      "rate": 85
+    },
+    {
+      "weather": 4,
+      "rate": 100
+    }
+  ],
+  "68": [
+    {
+      "weather": 14,
+      "rate": 100
+    }
+  ],
+  "69": [
+    {
+      "weather": 69,
+      "rate": 100
+    }
+  ],
+  "70": [
+    {
+      "weather": 54,
+      "rate": 100
+    }
+  ],
+  "71": [
+    {
+      "weather": 2,
+      "rate": 30
+    },
+    {
+      "weather": 4,
+      "rate": 60
+    },
+    {
+      "weather": 5,
+      "rate": 90
+    },
+    {
+      "weather": 49,
+      "rate": 100
+    }
+  ],
+  "72": [
+    {
+      "weather": 2,
+      "rate": 65
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "73": [
+    {
+      "weather": 2,
+      "rate": 65
+    },
+    {
+      "weather": 7,
+      "rate": 100
+    }
+  ],
+  "74": [
+    {
+      "weather": 17,
+      "rate": 100
+    }
+  ],
+  "75": [
+    {
+      "weather": 74,
+      "rate": 100
+    }
+  ],
+  "76": [
+    {
+      "weather": 84,
+      "rate": 100
+    }
+  ],
+  "77": [
+    {
+      "weather": 80,
+      "rate": 100
+    }
+  ],
+  "78": [
+    {
+      "weather": 1,
+      "rate": 15
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 9,
+      "rate": 100
+    }
+  ],
+  "79": [
+    {
+      "weather": 1,
+      "rate": 15
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 9,
+      "rate": 100
+    }
+  ],
+  "80": [
+    {
+      "weather": 1,
+      "rate": 10
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 75
+    },
+    {
+      "weather": 4,
+      "rate": 85
+    },
+    {
+      "weather": 5,
+      "rate": 95
+    },
+    {
+      "weather": 11,
+      "rate": 100
+    }
+  ],
+  "81": [
+    {
+      "weather": 1,
+      "rate": 20
+    },
+    {
+      "weather": 2,
+      "rate": 60
+    },
+    {
+      "weather": 3,
+      "rate": 80
+    },
+    {
+      "weather": 4,
+      "rate": 90
+    },
+    {
+      "weather": 10,
+      "rate": 100
+    }
+  ],
+  "82": [
+    {
+      "weather": 7,
+      "rate": 10
+    },
+    {
+      "weather": 4,
+      "rate": 20
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "83": [
+    {
+      "weather": 9,
+      "rate": 10
+    },
+    {
+      "weather": 5,
+      "rate": 20
+    },
+    {
+      "weather": 3,
+      "rate": 35
+    },
+    {
+      "weather": 2,
+      "rate": 75
+    },
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "84": [
+    {
+      "weather": 8,
+      "rate": 5
+    },
+    {
+      "weather": 7,
+      "rate": 15
+    },
+    {
+      "weather": 4,
+      "rate": 25
+    },
+    {
+      "weather": 3,
+      "rate": 40
+    },
+    {
+      "weather": 2,
+      "rate": 80
+    },
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "85": [
+    {
+      "weather": 6,
+      "rate": 5
+    },
+    {
+      "weather": 5,
+      "rate": 10
+    },
+    {
+      "weather": 7,
+      "rate": 17
+    },
+    {
+      "weather": 4,
+      "rate": 25
+    },
+    {
+      "weather": 3,
+      "rate": 35
+    },
+    {
+      "weather": 2,
+      "rate": 75
+    },
+    {
+      "weather": 1,
+      "rate": 100
+    }
+  ],
+  "86": [
+    {
+      "weather": 50,
+      "rate": 100
+    }
+  ],
+  "87": [
+    {
+      "weather": 82,
+      "rate": 100
+    }
+  ],
+  "88": [
+    {
+      "weather": 79,
+      "rate": 100
+    }
+  ],
+  "89": [
+    {
+      "weather": 88,
+      "rate": 100
+    }
+  ],
+  "90": []
+}

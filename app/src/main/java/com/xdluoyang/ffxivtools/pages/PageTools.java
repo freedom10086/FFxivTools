@@ -16,6 +16,7 @@ import android.widget.TextView;
 
 import com.xdluoyang.ffxivtools.R;
 import com.xdluoyang.ffxivtools.util.Util;
+import com.xdluoyang.ffxivtools.weather.WeatherActivity;
 
 public class PageTools extends LazyPage {
 

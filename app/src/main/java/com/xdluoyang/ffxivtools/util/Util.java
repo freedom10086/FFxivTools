@@ -7,6 +7,12 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
+
 
 public class Util {
     public static final float getScreenWidthDP(Context context) {
@@ -78,6 +84,18 @@ public class Util {
         }
 
         return tokens;
+    }
+
+    public static String readStreamString(InputStream is) throws IOException {
+        StringBuilder sb = new StringBuilder();
+        BufferedReader br = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
+        String str;
+        while ((str = br.readLine()) != null) {
+            sb.append(str);
+        }
+        br.close();
+
+        return sb.toString();
     }
 
     public static void openBroswer(Context activity, String url) {

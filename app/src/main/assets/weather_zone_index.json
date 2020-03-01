@@ -1,0 +1,299 @@
+[
+  {
+    "id": 22,
+    "name": "拉诺西亚",
+    "zones": [
+      {
+        "id": 27,
+        "name": "利姆萨·罗敏萨",
+        "weatherRate": 14
+      },
+      {
+        "id": 30,
+        "name": "中拉诺西亚",
+        "weatherRate": 16
+      },
+      {
+        "id": 31,
+        "name": "拉诺西亚低地",
+        "weatherRate": 17
+      },
+      {
+        "id": 32,
+        "name": "东拉诺西亚",
+        "weatherRate": 18
+      },
+      {
+        "id": 33,
+        "name": "西拉诺西亚",
+        "weatherRate": 19
+      },
+      {
+        "id": 34,
+        "name": "拉诺西亚高地",
+        "weatherRate": 20
+      },
+      {
+        "id": 350,
+        "name": "拉诺西亚外地",
+        "weatherRate": 24
+      },
+      {
+        "id": 425,
+        "name": "海雾村",
+        "mapSize": 2,
+        "weatherRate": 32
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "name": "黑衣森林",
+    "zones": [
+      {
+        "id": 39,
+        "name": "格里达尼亚",
+        "weatherRate": 7
+      },
+      {
+        "id": 54,
+        "name": "黑衣森林中央林区",
+        "weatherRate": 3
+      },
+      {
+        "id": 55,
+        "name": "黑衣森林东部林区",
+        "weatherRate": 4
+      },
+      {
+        "id": 56,
+        "name": "黑衣森林南部林区",
+        "weatherRate": 5
+      },
+      {
+        "id": 57,
+        "name": "黑衣森林北部林区",
+        "weatherRate": 6
+      },
+      {
+        "id": 426,
+        "name": "薰衣草苗圃",
+        "mapSize": 2,
+        "weatherRate": 34
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "name": "萨纳兰",
+    "zones": [
+      {
+        "id": 51,
+        "name": "乌尔达哈",
+        "weatherRate": 1
+      },
+      {
+        "id": 42,
+        "name": "西萨纳兰",
+        "weatherRate": 9
+      },
+      {
+        "id": 43,
+        "name": "中萨纳兰",
+        "weatherRate": 10
+      },
+      {
+        "id": 44,
+        "name": "东萨纳兰",
+        "weatherRate": 11
+      },
+      {
+        "id": 45,
+        "name": "南萨纳兰",
+        "weatherRate": 12
+      },
+      {
+        "id": 46,
+        "name": "北萨纳兰",
+        "weatherRate": 13
+      },
+      {
+        "id": 427,
+        "name": "高脚孤丘",
+        "mapSize": 2,
+        "weatherRate": 33
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "name": "库尔札斯",
+    "zones": [
+      {
+        "id": 62,
+        "name": "伊修加德",
+        "weatherRate": 48
+      },
+      {
+        "id": 63,
+        "name": "库尔札斯中央高地",
+        "weatherRate": 21
+      },
+      {
+        "id": 2200,
+        "name": "库尔札斯西部高地",
+        "weatherRate": 49
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "name": "摩杜纳",
+    "zones": [
+      {
+        "id": 67,
+        "name": "摩杜纳",
+        "weatherRate": 22
+      }
+    ]
+  },
+  {
+    "id": 497,
+    "name": "阿巴拉提亚",
+    "mapSize": 2,
+    "zones": [
+      {
+        "id": 2100,
+        "name": "阿巴拉提亚云海",
+        "weatherRate": 53
+      },
+      {
+        "id": 2101,
+        "name": "魔大陆阿济兹拉",
+        "weatherRate": 54
+      },
+      {
+        "id": 1647,
+        "name": "云冠群岛",
+        "size": 1,
+        "weatherRate": 71
+      },
+      {
+        "id": -1,
+        "name": "云冠群岛-白昼",
+        "weatherRate": 60
+      },
+      {
+        "id": -2,
+        "name": "云冠群岛-黄昏",
+        "weatherRate": 61
+      },
+      {
+        "id": -3,
+        "name": "云冠群岛-黑夜",
+        "weatherRate": 62
+      }
+    ]
+  },
+  {
+    "id": 498,
+    "name": "龙堡",
+    "mapSize": 2,
+    "zones": [
+      {
+        "id": 2000,
+        "name": "龙堡参天高地",
+        "weatherRate": 50
+      },
+      {
+        "id": 2001,
+        "name": "龙堡内陆低地",
+        "weatherRate": 51
+      },
+      {
+        "id": 2002,
+        "name": "翻云雾海",
+        "weatherRate": 52
+      },
+      {
+        "id": 2082,
+        "name": "田园郡",
+        "weatherRate": 55
+      }
+    ]
+  },
+  {
+    "id": 2401,
+    "name": "奥萨德",
+    "size": 1,
+    "zones": [
+      {
+        "id": 2409,
+        "name": "红玉海",
+        "size": 1,
+        "weatherRate": 83
+      },
+      {
+        "id": 2410,
+        "name": "延夏",
+        "size": 1,
+        "weatherRate": 84
+      },
+      {
+        "id": 2411,
+        "name": "太阳神草原",
+        "size": 1,
+        "weatherRate": 85
+      }
+    ]
+  },
+  {
+    "id": 2400,
+    "name": "基拉巴尼亚",
+    "zones": [
+      {
+        "id": 2403,
+        "name": "神拳痕",
+        "size": 2,
+        "weatherRate": 78
+      },
+      {
+        "id": 2406,
+        "name": "基拉巴尼亚边区",
+        "size": 1,
+        "weatherRate": 79
+      },
+      {
+        "id": 2407,
+        "name": "基拉巴尼亚山区",
+        "size": 1,
+        "weatherRate": 80
+      },
+      {
+        "id": 2408,
+        "name": "基拉巴尼亚湖区",
+        "size": 1,
+        "weatherRate": 81
+      }
+    ]
+  },
+  {
+    "id": 2402,
+    "name": "远东之国",
+    "size": 1,
+    "zones": [
+      {
+        "id": 2404,
+        "name": "黄金港",
+        "size": 2,
+        "weatherRate": 82
+      },
+      {
+        "id": 2412,
+        "name": "白银乡",
+        "size": 2,
+        "weatherRate": 82
+      }
+    ]
+  }
+]
